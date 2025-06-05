@@ -1,0 +1,1003 @@
+<!-- user-dashboard -->
+
+<div class="rounded-xl mb-6">
+  <!--Dashboard Header -->
+  <div class="flex flex-col bg-white rounded-xl shadow-asta-lg p-4 sm:p-6 border border-gray-100 mb-8">
+    <!-- Mobile Top Row -->
+    <div class="flex items-start justify-between sm:hidden mb-4">
+      <!-- Avatar -->
+      <div
+        class="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 border-white shadow-md"
+      >
+        <img
+          src="https://randomuser.me/api/portraits/men/32.jpg"
+          alt="User profile"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <!-- Welcome Info -->
+      <div class="ml-3 flex-1">
+        <div class="text-sm text-gray-600">Welcome back</div>
+        <div class="text-lg font-bold text-astaDark">John Anderson</div>
+        <div class="flex items-center mt-1">
+          <span class="relative flex h-2 w-2 mr-1">
+            <span
+              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"
+            ></span>
+            <span
+              class="relative inline-flex rounded-full h-2 w-2 bg-green-500"
+            ></span>
+          </span>
+          <span class="text-xs text-gray-600">Live data synced</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop/Tablet Layout -->
+    <div
+      class="hidden sm:flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4"
+    >
+      <!-- User Profile -->
+      <div class="flex items-center gap-4">
+        <!-- Avatar -->
+        <div class="relative group">
+          <div
+            class="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 border-white shadow-md"
+          >
+            <img
+              src="https://randomuser.me/api/portraits/men/32.jpg"
+              alt="User profile"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+        <!-- Welcome Message -->
+        <div>
+          <h1 class="text-2xl font-bold text-astaDark mb-1 flex items-center">
+            Welcome back,
+            <span class="text-astaPrimary ml-1">John Anderson!</span>
+            <span class="waving-hand ml-2 text-2xl">👋</span>
+          </h1>
+          <div class="flex items-center">
+            <span class="relative flex h-2 w-2 mr-2">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"
+              ></span>
+              <span
+                class="relative inline-flex rounded-full h-2 w-2 bg-green-500"
+              ></span>
+            </span>
+            <span class="text-gray-600">
+              <span class="font-medium text-astaPrimary animate-pulse"
+                >Live</span
+              >
+              data synced
+            </span>
+            <button
+              class="ml-2 text-astaPrimary hover:text-astaDark transition-colors"
+              title="Refresh"
+            >
+              <i class="fas fa-sync-alt"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons - Desktop -->
+      <div class="flex gap-3 mt-4 md:mt-0">
+        <div class="flex flex-col sm:flex-row gap-3 mt-4 sm:mt-0">
+          <!-- Left Referral Button -->
+          <div class="relative group">
+            <button
+              class="bg-gradient-to-r from-astaPrimary to-astaDark text-white px-4 py-3 rounded-xl flex items-center justify-center transition-all duration-300 hover:shadow-asta-lg w-full sm:w-auto group/button"
+            >
+              <div class="flex items-center">
+                <i class="fas fa-link text-lg mr-2"></i>
+                <span>Left Referral</span>
+                <i
+                  class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover/button:rotate-180"
+                ></i>
+              </div>
+            </button>
+            <div
+              class="absolute z-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-1 bg-white shadow-asta-lg rounded-xl mt-1 p-2 w-full min-w-[200px]"
+            >
+              <a
+                href="#"
+                class="flex items-center px-4 py-2 text-sm hover:bg-astaLight rounded-lg transition-colors"
+              >
+                <i class="fas fa-copy mr-3 text-astaPrimary"></i> Copy Referral
+                Link
+              </a>
+              <a
+                href="#"
+                class="flex items-center px-4 py-2 text-sm hover:bg-astaLight rounded-lg transition-colors"
+              >
+                <i class="fas fa-share-alt mr-3 text-astaPrimary"></i> Share
+                Options
+              </a>
+              <a
+                href="#"
+                class="flex items-center px-4 py-2 text-sm hover:bg-astaLight rounded-lg transition-colors"
+              >
+                <i class="fas fa-chart-line mr-3 text-astaPrimary"></i> View
+                Performance
+              </a>
+              <a
+                href="#"
+                class="flex items-center px-4 py-2 text-sm hover:bg-astaLight rounded-lg transition-colors"
+              >
+                <i class="fas fa-envelope mr-2 text-astaPrimary"></i> Email
+              </a>
+              <a
+                href="#"
+                class="flex items-center px-4 py-2 text-sm hover:bg-astaLight rounded-lg transition-colors"
+              >
+                <i class="fas fa-qrcode mr-2 text-astaPrimary"></i> QR Code
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Referral Button -->
+          <div class="relative group">
+            <button
+              class="bg-gradient-to-r from-astaSecondary to-astaAccent text-white px-4 py-3 rounded-xl flex items-center justify-center transition-all duration-300 hover:shadow-asta-lg w-full sm:w-auto group/button"
+            >
+              <div class="flex items-center">
+                <i class="fas fa-link text-lg mr-2"></i>
+                <span>Right Referral</span>
+                <i
+                  class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover/button:rotate-180"
+                ></i>
+              </div>
+            </button>
+            <div
+              class="absolute z-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-1 bg-white shadow-asta-lg rounded-xl mt-1 p-2 w-full min-w-[200px]"
+            >
+              <a
+                href="#"
+                class="flex items-center px-4 py-2 text-sm hover:bg-astaLight rounded-lg transition-colors"
+              >
+                <i class="fas fa-copy mr-3 text-astaSecondary"></i> Copy
+                Referral Link
+              </a>
+              <a
+                href="#"
+                class="flex items-center px-4 py-2 text-sm hover:bg-astaLight rounded-lg transition-colors"
+              >
+                <i class="fas fa-share-alt mr-3 text-astaSecondary"></i> Share
+                Options
+              </a>
+              <a
+                href="#"
+                class="flex items-center px-4 py-2 text-sm hover:bg-astaLight rounded-lg transition-colors"
+              >
+                <i class="fas fa-chart-line mr-3 text-astaSecondary"></i> View
+                Performance
+              </a>
+              <a
+                href="#"
+                class="flex items-center px-4 py-2 text-sm hover:bg-astaLight rounded-lg transition-colors"
+              >
+                <i class="fas fa-envelope mr-2 text-astaSecondary"></i> Email
+              </a>
+              <a
+                href="#"
+                class="flex items-center px-4 py-2 text-sm hover:bg-astaLight rounded-lg transition-colors"
+              >
+                <i class="fas fa-qrcode mr-2 text-astaSecondary"></i> QR Code
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Info Cards - For All Devices -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      <!-- Member Since Card -->
+      <div
+        class="relative bg-gradient-to-br from-astaLight to-white rounded-xl p-3 group hover:from-astaPrimary hover:to-astaDark hover:text-white transition-all duration-300 cursor-pointer border border-gray-100 hover:border-transparent shadow-sm hover:shadow-asta min-w-[180px]"
+      >
+        <div class="flex items-start justify-between">
+          <div>
+            <p
+              class="text-xs text-gray-500 uppercase tracking-wider mb-1 group-hover:text-white/80"
+            >
+              Member Since
+            </p>
+            <div class="flex items-center">
+              <div class="p-2 rounded-full bg-green-50 text-green-600 mr-3">
+                <i class="fas fa-calendar-alt"></i>
+              </div>
+              <div class="group-hover:text-white">
+                <p class="font-medium text-gray-800 group-hover:text-white">
+                  14 Feb 2025
+                </p>
+                <p class="text-sm text-gray-500 group-hover:text-white">
+                  09:09 AM
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="absolute right-3 top-3 opacity-0 group-hover:opacity-100 transition-opacity"
+          >
+            <i class="fas fa-history text-white/80"></i>
+          </div>
+        </div>
+        <div
+          class="mt-3 pt-3 border-t border-gray-100 flex justify-between items-center"
+        >
+          <span class="text-xs text-gray-500">Duration: 3 months</span>
+          <span
+            class="text-xs px-2 py-1 bg-green-100 text-green-800 rounded-full"
+            >Active</span
+          >
+        </div>
+        <div
+          class="absolute inset-x-0 bottom-0 h-1 bg-astaPrimary/20 group-hover:bg-white/30 rounded-b-xl"
+        ></div>
+      </div>
+
+      <!-- Activation Card -->
+      <div
+        class="relative bg-gradient-to-br from-astaLight to-white rounded-xl p-4 group hover:from-astaSecondary hover:to-astaAccent hover:text-white transition-all duration-300 cursor-pointer border border-gray-100 hover:border-transparent shadow-sm hover:shadow-asta min-w-[180px]"
+      >
+        <div class="flex items-start justify-between">
+          <div>
+            <p
+              class="text-xs text-gray-500 uppercase tracking-wider mb-1 group-hover:text-white/80"
+            >
+              Activation
+            </p>
+            <div class="flex items-center">
+              <div
+                class="p-2 rounded-full bg-emerald-50 text-astaSecondary mr-3"
+              >
+                <i class="fas fa-bolt"></i>
+              </div>
+              <div>
+                <p class="font-medium text-gray-800 group-hover:text-white">
+                  05 May 2025
+                </p>
+                <p class="text-sm text-gray-500 group-hover:text-white">
+                  04:09 PM
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="absolute right-3 top-3 opacity-0 group-hover:opacity-100 transition-opacity"
+          >
+            <i class="fas fa-bolt text-white/80 animate-pulse"></i>
+          </div>
+        </div>
+        <div
+          class="mt-3 pt-3 border-t border-gray-100 flex justify-between items-center"
+        >
+          <span class="text-xs text-gray-500">Status: Verified</span>
+          <span
+            class="text-xs px-2 py-1 bg-emerald-100 text-emerald-800 rounded-full"
+            >Premium</span
+          >
+        </div>
+        <div
+          class="absolute inset-x-0 bottom-0 h-1 bg-astaSecondary/20 group-hover:bg-white/30 rounded-b-xl"
+        ></div>
+      </div>
+
+      <!-- Performance Card -->
+      <div
+        class="relative bg-gradient-to-br from-green-50 to-white rounded-xl p-3 group hover:from-green-100 hover:to-green-50 transition-all duration-300 cursor-pointer border border-green-100 hover:border-green-200 shadow-sm min-w-[180px]"
+      >
+        <div class="flex items-start justify-between">
+          <div>
+            <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">
+              Team Performance
+            </p>
+            <div class="flex items-center">
+              <div class="p-2 rounded-full bg-teal-50 text-teal-600 mr-3">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div>
+                <p class="font-medium text-gray-800">1,248 Members</p>
+                <p class="text-sm text-gray-500">+24 this week</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="absolute right-3 top-3 opacity-0 group-hover:opacity-100 transition-opacity"
+          >
+            <i class="fas fa-users hover:text-teal-600"></i>
+          </div>
+        </div>
+        <div
+          class="mt-3 pt-3 border-t border-gray-100 group-hover:order-gray-400"
+        >
+          <div class="flex justify-between text-xs">
+            <span class="text-gray-500">Left: 612</span>
+            <span class="text-gray-500">Right: 636</span>
+          </div>
+        </div>
+        <div
+          class="absolute inset-x-0 bottom-0 h-1 bg-green-200/50 rounded-b-xl"
+        ></div>
+      </div>
+    </div>
+
+    <!-- Action Buttons - Mobile -->
+    <div class="flex flex-col sm:flex-row gap-3 mt-4 sm:mt-0 sm:hidden">
+      <!-- Left Network Button -->
+      <div class="relative group">
+        <button
+          class="bg-gradient-to-r from-astaPrimary to-astaDark text-white px-4 py-3 rounded-xl flex items-center justify-center transition-all duration-300 hover:shadow-asta-lg w-full sm:w-auto group/button"
+        >
+          <div class="flex items-center">
+            <i class="fas fa-link text-lg mr-2"></i>
+            <span>Left Refferal</span>
+            <i
+              class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover/button:rotate-180"
+            ></i>
+          </div>
+        </button>
+        <div
+          class="absolute z-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-1 bg-white shadow-asta-lg rounded-xl mt-1 p-2 w-full min-w-[200px]"
+        >
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 text-sm hover:bg-astaLight rounded-lg transition-colors"
+          >
+            <i class="fas fa-copy mr-3 text-astaPrimary"></i> Copy Referral Link
+          </a>
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 text-sm hover:bg-astaLight rounded-lg transition-colors"
+          >
+            <i class="fas fa-share-alt mr-3 text-astaPrimary"></i> Share Options
+          </a>
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 text-sm hover:bg-astaLight rounded-lg transition-colors"
+          >
+            <i class="fas fa-chart-line mr-3 text-astaPrimary"></i> View
+            Performance
+          </a>
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 text-sm hover:bg-astaLight rounded-lg transition-colors"
+          >
+            <i class="fas fa-envelope mr-2 text-astaPrimary"></i> Email
+          </a>
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 text-sm hover:bg-astaLight rounded-lg transition-colors"
+          >
+            <i class="fas fa-qrcode mr-2 text-astaPrimary"></i> QR Code
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Network Button -->
+      <div class="relative group">
+        <button
+          class="bg-gradient-to-r from-astaSecondary to-astaAccent text-white px-4 py-3 rounded-xl flex items-center justify-center transition-all duration-300 hover:shadow-asta-lg w-full sm:w-auto group/button"
+        >
+          <div class="flex items-center">
+            <i class="fas fa-link text-lg mr-2"></i>
+            <span>Right Refferal</span>
+            <i
+              class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover/button:rotate-180"
+            ></i>
+          </div>
+        </button>
+        <div
+          class="absolute z-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-1 bg-white shadow-asta-lg rounded-xl mt-1 p-2 w-full min-w-[200px]"
+        >
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 text-sm hover:bg-astaLight rounded-lg transition-colors"
+          >
+            <i class="fas fa-copy mr-3 text-astaSecondary"></i> Copy Referral
+            Link
+          </a>
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 text-sm hover:bg-astaLight rounded-lg transition-colors"
+          >
+            <i class="fas fa-share-alt mr-3 text-astaSecondary"></i> Share
+            Options
+          </a>
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 text-sm hover:bg-astaLight rounded-lg transition-colors"
+          >
+            <i class="fas fa-chart-line mr-3 text-astaSecondary"></i> View
+            Performance
+          </a>
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 text-sm hover:bg-astaLight rounded-lg transition-colors"
+          >
+            <i class="fas fa-envelope mr-2 text-astaSecondary"></i> Email
+          </a>
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 text-sm hover:bg-astaLight rounded-lg transition-colors"
+          >
+            <i class="fas fa-qrcode mr-2 text-astaSecondary"></i> QR Code
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Stats Cards Section -->
+   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+        <!-- Wallet Balance Card -->
+        <div class="stats-card bg-gradient-to-br from-white to-yellow-50 rounded-xl p-5 shadow-md border border-gray-100 relative overflow-hidden">
+            <div class="flex justify-between items-start">
+            <div>
+                <p class="text-sm font-medium text-gray-500 mb-1">Wallet Balance</p>
+                <h3 class="stats-value text-3xl font-bold text-astaDark">₹0.00</h3>
+                <div class="mt-4 pt-3 border-t border-gray-100">
+                <p class="text-xs text-gray-500 flex items-center">
+                    <span class="inline-block w-2 h-2 rounded-full bg-green-500 mr-2"></span>
+                    Available for withdrawal
+                </p>
+                </div>
+            </div>
+            <div class="stats-icon-container bg-astaAccent bg-opacity-20 p-3 rounded-full">
+                <i class="fas fa-wallet text-astaAccent text-xl"></i>
+            </div>
+            </div>
+        </div>
+
+        <!-- Total Bonus Card -->
+        <div class="stats-card bg-gradient-to-br from-white to-orange-50 rounded-xl p-5 shadow-md border border-gray-100 relative overflow-hidden">
+            <div class="flex justify-between items-start">
+            <div>
+                <p class="text-sm font-medium text-gray-500 mb-1">Total Bonus</p>
+                <h3 class="stats-value text-3xl font-bold text-astaDark">₹101,709.00</h3>
+                <div class="mt-4 pt-3 border-t border-gray-100">
+                <p class="text-xs text-gray-500 flex items-center">
+                    <span class="inline-block w-2 h-2 rounded-full bg-amber-500 mr-2"></span>
+                    Accumulated rewards
+                </p>
+                </div>
+            </div>
+            <div class="stats-icon-container bg-astaSecondary bg-opacity-20 p-3 rounded-full">
+                <i class="fas fa-coins text-astaSecondary text-xl"></i>
+            </div>
+            </div>
+        </div>
+
+        <!-- Rank Status Card -->
+        <div class="stats-card bg-gradient-to-br from-white to-green-50 rounded-xl p-5 shadow-md border border-gray-100 relative overflow-hidden">
+            <div class="flex justify-between items-start">
+            <div>
+                <p class="text-sm font-medium text-gray-500 mb-1">Current Rank</p>
+                <div class="flex items-baseline">
+                <h3 class="stats-value text-2xl font-bold text-astaDark mr-2">3 Star</h3>
+                <span class="text-xs px-2 py-1 rounded-full bg-astaPrimary bg-opacity-10 text-astaPrimary">65%</span>
+                </div>
+                <p class="text-xs mt-1 text-gray-500">Next: 15,000 RP to 4 Star</p>
+                
+                <div class="mt-4 pt-3 border-t border-gray-100">
+                <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                    <div class="progress-bar bg-gradient-to-r from-astaPrimary to-astaSecondary h-2 rounded-full" style="width: 65%"></div>
+                </div>
+                <p class="text-xs text-gray-500 mt-1 flex justify-between">
+                    <span>Progress</span>
+                    <span>9,750/15,000 RP</span>
+                </p>
+                </div>
+            </div>
+            <div class="stats-icon-container bg-astaPrimary bg-opacity-20 p-3 rounded-full">
+                <i class="fas fa-trophy text-astaPrimary text-xl"></i>
+            </div>
+            </div>
+        </div>
+   </div>
+
+  <!-- Rank Criteria Section -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+    <!-- Current Rank Status -->
+    <div class="bg-white rounded-xl shadow-asta p-6">
+      <div
+        class="flex flex-col md:flex-row md:items-center md:justify-between mb-4"
+      >
+        <div>
+          <h2 class="text-2xl font-bold text-astaDark">Rank Criteria</h2>
+        </div>
+        <div class="mt-4 md:mt-0">
+          <button
+            class="bg-astaPrimary hover:bg-astaDark text-white px-4 py-2 rounded-lg flex items-center transition-all"
+          >
+            <i class="fas fa-trophy mr-2"></i>
+            <span>Rank Progress</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="font-semibold text-lg text-astaDark">Current Rank</h3>
+        <span
+          class="bg-astaPrimary text-white px-3 py-1 rounded-full text-sm font-medium"
+          >2 Star</span
+        >
+      </div>
+      <div class="space-y-4">
+        <div class="bg-astaLight p-4 rounded-lg">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-gray-600">Reward Amount</span>
+            <span class="font-bold text-astaPrimary">15,000</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-600">Achieved Reward Amount</span>
+            <span class="font-bold text-astaSecondary">20000.00</span>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-200 pt-4">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="font-semibold text-lg text-astaDark">Next Rank</h3>
+            <span
+              class="bg-astaPrimary text-white px-3 py-1 rounded-full text-sm font-medium"
+              >3 Star</span
+            >
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-astaLight p-3 rounded-lg">
+              <p class="text-sm text-gray-600 mb-1">Left RP Required</p>
+              <p class="font-bold">100</p>
+            </div>
+            <div class="bg-astaLight p-3 rounded-lg">
+              <p class="text-sm text-gray-600 mb-1">Right RP Required</p>
+              <p class="font-bold">100</p>
+            </div>
+            <div class="bg-astaLight p-3 rounded-lg">
+              <p class="text-sm text-gray-600 mb-1">Left RP Remain</p>
+              <p class="font-bold text-astaPrimary">22.50</p>
+            </div>
+            <div class="bg-astaLight p-3 rounded-lg">
+              <p class="text-sm text-gray-600 mb-1">Right RP Remain</p>
+              <p class="font-bold text-astaSecondary">0</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Asta Bonaza Club -->
+    <div class="bg-white rounded-xl shadow-asta p-6">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="font-semibold text-lg text-astaDark">Asta Bonaza Club</h3>
+        <span
+          class="bg-astaSecondary text-white px-3 py-1 rounded-full text-sm font-medium"
+          >Domestic Tour</span
+        >
+      </div>
+
+      <div class="space-y-6">
+        <div>
+          <h4 class="font-medium text-astaDark mb-2">RP Status</h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-astaLight p-4 rounded-lg">
+              <p class="text-sm text-gray-600 mb-1">Required RP</p>
+              <div class="flex justify-between">
+                <span class="text-astaDark">Left</span>
+                <span class="text-astaDark">Right</span>
+              </div>
+              <div class="flex justify-between mt-1">
+                <span class="font-bold">50</span>
+                <span class="font-bold">50</span>
+              </div>
+            </div>
+            <div class="bg-astaLight p-4 rounded-lg">
+              <p class="text-sm text-gray-600 mb-1">Current RP</p>
+              <div class="flex justify-between">
+                <span class="text-astaPrimary">78</span>
+                <span class="text-astaSecondary">500,000</span>
+              </div>
+            </div>
+            <div class="bg-astaLight p-4 rounded-lg">
+              <p class="text-sm text-gray-600 mb-1">Balance RP</p>
+              <div class="flex justify-between">
+                <span class="text-astaPrimary">28</span>
+                <span class="text-astaSecondary">499,950</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-r from-astaPrimary to-astaSecondary p-4 rounded-lg text-white"
+        >
+          <div class="flex justify-between items-center">
+            <div>
+              <p class="text-sm font-medium">Tour Period</p>
+              <h3 class="text-xl font-bold mt-1">10-04-2025 to 31-07-2025</h3>
+            </div>
+            <i class="fas fa-calendar-alt text-2xl opacity-80"></i>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-medium text-astaDark mb-2">Progress Visualization</h4>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span class="text-gray-600">Left RP Progress</span>
+                <span class="font-medium">78/50 (156%)</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div
+                  class="bg-astaPrimary h-2.5 rounded-full"
+                  style="width: 100%"
+                ></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span class="text-gray-600">Right RP Progress</span>
+                <span class="font-medium">500,000/50 (10000%)</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div
+                  class="bg-astaSecondary h-2.5 rounded-full"
+                  style="width: 100%"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team Stats Section -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+    <!-- Key Team Stats -->
+    <div class="bg-white rounded-xl p-6 shadow-asta">
+      <h3 class="font-semibold text-lg text-astaDark mb-4">Team Statistics</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+        <div class="bonus-card bg-gradient-to-br from-white to-orange-50 rounded-xl p-5 shadow-sm flex flex-col border border-orange-300">
+          <p class="text-sm font-medium text-gray-500">Total Team</p>
+          <div class="flex justify-between items-end mt-2">
+            <div>
+              <span class="text-2xl font-bold text-astaPrimary">188</span>
+              <span class="text-xs text-gray-500 ml-1">Left</span>
+            </div>
+            <div>
+              <span class="text-2xl font-bold text-astaSecondary">24</span>
+              <span class="text-xs text-gray-500 ml-1">Right</span>
+            </div>
+          </div>
+        </div>
+        <div class="bonus-card bg-gradient-to-br from-white to-green-50 rounded-xl p-5 shadow-sm flex flex-col border border-green-300">
+          <p class="text-sm font-medium text-gray-500">Active Team</p>
+          <div class="flex justify-between items-end mt-2">
+            <div>
+              <span class="text-2xl font-bold text-astaPrimary">83</span>
+              <span class="text-xs text-gray-500 ml-1">Left</span>
+            </div>
+            <div>
+              <span class="text-2xl font-bold text-astaSecondary">2</span>
+              <span class="text-xs text-gray-500 ml-1">Right</span>
+            </div>
+          </div>
+        </div>
+        <div class="bonus-card bg-gradient-to-br from-white to-orange-50 rounded-xl p-5 shadow-sm flex flex-col border border-orange-300">
+          <p class="text-sm font-medium text-gray-500">Direct Total Team</p>
+          <div class="flex justify-between items-end mt-2">
+            <div>
+              <span class="text-2xl font-bold text-astaPrimary">3</span>
+              <span class="text-xs text-gray-500 ml-1">Left</span>
+            </div>
+            <div>
+              <span class="text-2xl font-bold text-astaSecondary">2</span>
+              <span class="text-xs text-gray-500 ml-1">Right</span>
+            </div>
+          </div>
+        </div>
+        <div class="bonus-card bg-gradient-to-br from-white to-green-50 rounded-xl p-5 shadow-sm flex flex-col border border-green-300">
+          <p class="text-sm font-medium text-gray-500">Direct Active</p>
+          <div class="flex justify-between items-end mt-2">
+            <div>
+              <span class="text-2xl font-bold text-astaPrimary">2</span>
+              <span class="text-xs text-gray-500 ml-1">Left</span>
+            </div>
+            <div>
+              <span class="text-2xl font-bold text-astaSecondary">1</span>
+              <span class="text-xs text-gray-500 ml-1">Right</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RP Status -->
+    <div class="bg-white rounded-xl p-6 shadow-asta">
+      <h3 class="font-semibold text-lg text-astaDark mb-4">
+        Reward Points Status
+      </h3>
+      <div class="space-y-4">
+        <div>
+          <div class="flex justify-between text-sm mb-1">
+            <span class="text-gray-600">Required RP</span>
+            <span class="font-medium">59 - 50</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div
+              class="bg-astaPrimary h-2.5 rounded-full"
+              style="width: 75%"
+            ></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-1">
+            <span class="text-gray-600">Current RP</span>
+            <span class="font-medium">75 - 500,000</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div
+              class="bg-astaSecondary h-2.5 rounded-full"
+              style="width: 90%"
+            ></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-1">
+            <span class="text-gray-600">Balance RP</span>
+            <span class="font-medium">28 - 409,929</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div
+              class="bg-astaAccent h-2.5 rounded-full"
+              style="width: 60%"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <h4 class="font-medium text-astaDark mb-2">Today's Activity</h4>
+        <div
+          class="flex items-center justify-between bg-astaLight p-3 rounded-lg"
+        >
+          <div class="flex items-center">
+            <div class="bg-astaPrimary bg-opacity-20 p-2 rounded-full mr-3">
+              <i class="fas fa-bolt text-astaPrimary text-sm"></i>
+            </div>
+            <div>
+              <p class="text-sm font-medium">New RV Added</p>
+              <p class="text-xs text-gray-500">Left: 10,000 | Right: 0</p>
+            </div>
+          </div>
+          <span class="text-xs text-gray-500">Today</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   
+    <!-- Bonus Wallet Section -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+        <div class="bonus-card bg-gradient-to-br from-white to-yellow-50 rounded-xl p-5 shadow-sm flex flex-col border border-yellow-100">
+            <div class="flex justify-between items-start mb-3">
+                <div>
+                    <h3 class="font-semibold text-lg text-astaDark">Bonus Wallet</h3>
+                    <p class="text-xs text-gray-500 mt-1">Available balance</p>
+                </div>
+                <div class="bonus-icon bg-astaAccent bg-opacity-20 p-3 rounded-full">
+                    <i class="fas fa-wallet text-astaAccent text-xl"></i>
+                </div>
+            </div>
+            <div class="mt-auto">
+                <p class="bonus-value text-3xl font-bold">₹91,538.10</p>
+                <button class="view-detail-btn mt-4 text-astaPrimary text-sm font-medium flex items-center">
+                    View Detail <i class="fas fa-chevron-right ml-1 text-xs transition-all"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- First Sale Bonus -->
+        <div class="bonus-card bg-gradient-to-br from-white to-green-50 rounded-xl p-5 shadow-sm flex flex-col border border-green-100">
+            <div class="flex justify-between items-start mb-3">
+            <div>
+                <h3 class="font-semibold text-lg text-astaDark">First Sale Bonus</h3>
+                <p class="text-xs text-gray-500 mt-1">Initial sales reward</p>
+            </div>
+            <div class="bonus-icon bg-astaPrimary bg-opacity-20 p-3 rounded-full">
+                <i class="fas fa-star text-astaPrimary text-xl"></i>
+            </div>
+            </div>
+            <div class="mt-auto">
+            <p class="bonus-value text-3xl font-bold">₹0.00</p>
+            <button class="view-detail-btn mt-4 text-astaPrimary text-sm font-medium flex items-center">
+                View Detail <i class="fas fa-chevron-right ml-1 text-xs transition-all"></i>
+            </button>
+            </div>
+        </div>
+
+        <!-- Team Sales Level Bonus -->
+        <div class="bonus-card bg-gradient-to-br from-white to-orange-100 rounded-xl p-5 shadow-sm flex flex-col border border-orange-100">
+            <div class="flex justify-between items-start mb-3">
+            <div>
+                <h3 class="font-semibold text-lg text-astaDark">Team Sales Level</h3>
+                <p class="text-xs text-gray-500 mt-1">Team performance</p>
+            </div>
+            <div class="bonus-icon bg-astaSecondary bg-opacity-20 p-3 rounded-full">
+                <i class="fas fa-users text-astaSecondary text-xl"></i>
+            </div>
+            </div>
+            <div class="mt-auto">
+            <p class="bonus-value text-3xl font-bold">₹4,399.00</p>
+            <button class="view-detail-btn mt-4 text-astaPrimary text-sm font-medium flex items-center">
+                View Detail <i class="fas fa-chevron-right ml-1 text-xs transition-all"></i>
+            </button>
+            </div>
+        </div>
+
+        <!-- Self Repurchase Bonus -->
+        <div class="bonus-card bg-gradient-to-br from-white to-green-50 rounded-xl p-5 shadow-sm flex flex-col border border-green-100">
+            <div class="flex justify-between items-start mb-3">
+            <div>
+                <h3 class="font-semibold text-lg text-astaDark">Self Repurchase</h3>
+                <p class="text-xs text-gray-500 mt-1">Personal purchases</p>
+            </div>
+            <div class="bonus-icon bg-astaPrimary bg-opacity-20 p-3 rounded-full">
+                <i class="fas fa-shopping-bag text-astaPrimary text-xl"></i>
+            </div>
+            </div>
+            <div class="mt-auto">
+            <p class="bonus-value text-3xl font-bold">₹0.00</p>
+            <button class="view-detail-btn mt-4 text-astaPrimary text-sm font-medium flex items-center">
+                View Detail <i class="fas fa-chevron-right ml-1 text-xs transition-all"></i>
+            </button>
+            </div>
+        </div>
+
+        <!-- Team Sales Bonus -->
+        <div class="bonus-card bg-gradient-to-br from-white to-orange-100 rounded-xl p-5 shadow-sm flex flex-col border border-orange-100">
+            <div class="flex justify-between items-start mb-3">
+            <div>
+                <h3 class="font-semibold text-lg text-astaDark">Team Sales</h3>
+                <p class="text-xs text-gray-500 mt-1">Team commission</p>
+            </div>
+            <div class="bonus-icon bg-astaSecondary bg-opacity-20 p-3 rounded-full">
+                <i class="fas fa-handshake text-astaSecondary text-xl"></i>
+            </div>
+            </div>
+            <div class="mt-auto">
+            <p class="bonus-value text-3xl font-bold">₹77,310.00</p>
+            <button class="view-detail-btn mt-4 text-astaPrimary text-sm font-medium flex items-center">
+                View Detail <i class="fas fa-chevron-right ml-1 text-xs transition-all"></i>
+            </button>
+            </div>
+        </div>
+
+        <!-- Reward Bonus -->
+        <div class="bonus-card bg-gradient-to-br from-white to-yellow-50 rounded-xl p-5 shadow-sm flex flex-col border border-yellow-100">
+            <div class="flex justify-between items-start mb-3">
+            <div>
+                <h3 class="font-semibold text-lg text-astaDark">Reward Bonus</h3>
+                <p class="text-xs text-gray-500 mt-1">Achievement rewards</p>
+            </div>
+            <div class="bonus-icon bg-astaAccent bg-opacity-20 p-3 rounded-full">
+                <i class="fas fa-trophy text-astaAccent text-xl"></i>
+            </div>
+            </div>
+            <div class="mt-auto">
+            <p class="bonus-value text-3xl font-bold">₹20,000.00</p>
+            <button class="view-detail-btn mt-4 text-astaPrimary text-sm font-medium flex items-center">
+                View Detail <i class="fas fa-chevron-right ml-1 text-xs transition-all"></i>
+            </button>
+            </div>
+        </div>
+    </div>
+
+  <!-- Detailed Stats Tables -->
+  <div class="bg-white rounded-xl shadow-asta overflow-hidden mb-8">
+    <div class="p-6 border-b border-gray-100">
+      <h3 class="font-semibold text-lg text-astaDark">
+        Detailed Performance Metrics
+      </h3>
+    </div>
+
+    <div class="table-responsive-container">
+      <div class="table-scroll-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Particular</th>
+              <th>Left</th>
+              <th>Right</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Total RP</td>
+              <td>77.50</td>
+              <td>500,000.00</td>
+            </tr>
+            <tr>
+              <td>Total NV</td>
+              <td>793,100</td>
+              <td>10,000,000</td>
+            </tr>
+            <tr>
+              <td>Total Marked RV</td>
+              <td>773,100</td>
+              <td>773,100</td>
+            </tr>
+            <tr>
+              <td>Carry Forward</td>
+              <td>10,000</td>
+              <td>9,226,900</td>
+            </tr>
+            <tr>
+              <td>Today New RV</td>
+              <td>10,000</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Performance Summary -->
+  <div class="bg-white rounded-xl shadow-asta p-6 mb-8">
+    <h3 class="font-semibold text-lg text-astaDark mb-4">
+      Performance Summary
+    </h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Left Team Summary -->
+      <div class="bonus-card bg-gradient-to-br from-white to-green-50 rounded-xl p-5 shadow-sm flex flex-col border border-green-300">
+        <h4 class="font-medium text-astaPrimary mb-3 flex items-center">
+          <i class="fas fa-arrow-circle-left mr-2"></i> Left Team Performance
+        </h4>
+        <div class="space-y-3">
+          <div class="flex justify-between">
+            <span class="text-gray-600">Total RP</span>
+            <span class="font-medium">77.50</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600">Total BV</span>
+            <span class="font-medium">783,100</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600">Today New BV</span>
+            <span class="text-astaPrimary font-medium">10,000</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Team Summary -->
+      <div class="bonus-card bg-gradient-to-br from-white to-orange-100 rounded-xl p-5 shadow-sm flex flex-col border border-orange-300">
+        <h4 class="font-medium text-astaSecondary mb-3 flex items-center">
+          <i class="fas fa-arrow-circle-right mr-2"></i> Right Team Performance
+        </h4>
+        <div class="space-y-3">
+          <div class="flex justify-between">
+            <span class="text-gray-600">Total RP</span>
+            <span class="font-medium">500,000.00</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600">Total BV</span>
+            <span class="font-medium">10,000,000</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600">Today New BV</span>
+            <span class="text-gray-500">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

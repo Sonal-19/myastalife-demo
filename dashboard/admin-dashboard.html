@@ -1,0 +1,253 @@
+<!-- admin-dashboard -->
+<div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+        <div>
+            <h2 class="text-2xl font-bold text-astaDark">Dashboard Overview</h2>
+            <p class="text-gray-500">Welcome back! Here's what's happening today.</p>
+        </div>
+        <div class="mt-4 md:mt-0">
+            <button class="bg-astaPrimary hover:bg-astaDark text-white px-4 py-2 rounded-lg flex items-center transition-all duration-300 shadow-asta">
+                <i class="fas fa-plus mr-2"></i>
+                <span>Create Billing</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <!-- Total Members -->
+        <div class="bg-white border border-astaLight rounded-lg p-6 shadow-asta hover:shadow-asta-lg transition-all duration-300">
+            <div class="flex justify-between items-start">
+                <div>
+                    <p class="text-sm font-medium text-gray-500">Total Members</p>
+                    <h3 class="text-2xl font-bold mt-1 text-astaDark">214</h3>
+                </div>
+                <div class="bg-astaLight p-3 rounded-full">
+                    <i class="fas fa-users text-astaPrimary"></i>
+                </div>
+            </div>
+            <a href="#" class="mt-4 inline-flex items-center text-sm text-astaPrimary hover:text-astaDark">
+                View List
+                <i class="fas fa-chevron-right ml-1 text-xs"></i>
+            </a>
+        </div>
+
+        <!-- Active Members -->
+        <div class="bg-white border border-astaLight rounded-lg p-6 shadow-asta hover:shadow-asta-lg transition-all duration-300">
+            <div class="flex justify-between items-start">
+                <div>
+                    <p class="text-sm font-medium text-gray-500">Active Members</p>
+                    <h3 class="text-2xl font-bold mt-1 text-astaDark">87</h3>
+                </div>
+                <div class="bg-astaLight p-3 rounded-full">
+                    <i class="fas fa-user-check text-astaPrimary"></i>
+                </div>
+            </div>
+            <a href="#" class="mt-4 inline-flex items-center text-sm text-astaPrimary hover:text-astaDark">
+                View List
+                <i class="fas fa-chevron-right ml-1 text-xs"></i>
+            </a>
+        </div>
+
+        <!-- Total Bill -->
+        <div class="bg-white border border-astaLight rounded-lg p-6 shadow-asta hover:shadow-asta-lg transition-all duration-300">
+            <div class="flex justify-between items-start">
+                <div>
+                    <p class="text-sm font-medium text-gray-500">Total Bill</p>
+                    <h3 class="text-2xl font-bold mt-1 text-astaDark">77</h3>
+                </div>
+                <div class="bg-astaLight p-3 rounded-full">
+                    <i class="fas fa-file-invoice-dollar text-astaPrimary"></i>
+                </div>
+            </div>
+            <a href="#" class="mt-4 inline-flex items-center text-sm text-astaPrimary hover:text-astaDark">
+                View List
+                <i class="fas fa-chevron-right ml-1 text-xs"></i>
+            </a>
+        </div>
+
+        <!-- Total Bill Cancelled -->
+        <div class="bg-white border border-astaLight rounded-lg p-6 shadow-asta hover:shadow-asta-lg transition-all duration-300">
+            <div class="flex justify-between items-start">
+                <div>
+                    <p class="text-sm font-medium text-gray-500">Cancelled Bills</p>
+                    <h3 class="text-2xl font-bold mt-1 text-astaDark">1</h3>
+                </div>
+                <div class="bg-astaLight p-3 rounded-full">
+                    <i class="fas fa-times-circle text-astaPrimary"></i>
+                </div>
+            </div>
+            <a href="#" class="mt-4 inline-flex items-center text-sm text-astaPrimary hover:text-astaDark">
+                View List
+                <i class="fas fa-chevron-right ml-1 text-xs"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Revenue Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+        <div class="bg-white border border-astaLight rounded-lg p-6 shadow-asta lg:col-span-2">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-semibold text-lg text-astaDark">Revenue Overview</h3>
+                <div class="flex space-x-2">
+                    <button class="px-3 py-1 text-xs bg-astaPrimary text-white rounded-full">Daily</button>
+                    <button class="px-3 py-1 text-xs bg-gray-100 text-gray-800 rounded-full">Monthly</button>
+                    <button class="px-3 py-1 text-xs bg-gray-100 text-gray-800 rounded-full">Yearly</button>
+                </div>
+            </div>
+            <div class="h-64 bg-astaLight rounded-lg flex items-center justify-center">
+                <!-- Chart placeholder -->
+                <div class="text-center">
+                    <i class="fas fa-chart-line text-4xl text-astaPrimary mb-2"></i>
+                    <p class="text-gray-500">Revenue chart visualization</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border border-astaLight rounded-lg p-6 shadow-asta">
+            <h3 class="font-semibold text-lg text-astaDark mb-4">Revenue Summary</h3>
+            <div class="space-y-4">
+                <div class="flex justify-between items-center pb-4 border-b border-astaLight">
+                    <div>
+                        <p class="text-sm text-gray-500">Today's Revenue</p>
+                        <p class="text-lg font-semibold text-astaDark">₹17,000.00</p>
+                    </div>
+                    <div class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">
+                        <i class="fas fa-arrow-up mr-1"></i> 12%
+                    </div>
+                </div>
+                <div class="flex justify-between items-center pb-4 border-b border-astaLight">
+                    <div>
+                        <p class="text-sm text-gray-500">Month's Revenue</p>
+                        <p class="text-lg font-semibold text-astaDark">₹605,700.00</p>
+                    </div>
+                    <div class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">
+                        <i class="fas fa-arrow-up mr-1"></i> 8%
+                    </div>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <p class="text-sm text-gray-500">Year's Revenue</p>
+                        <p class="text-lg font-semibold text-astaDark">₹1,326,400.00</p>
+                    </div>
+                    <div class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">
+                        <i class="fas fa-arrow-up mr-1"></i> 24%
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payout and Profit Sections -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Payout Summary -->
+        <div class="bg-white border border-astaLight rounded-lg p-6 shadow-asta">
+            <h3 class="font-semibold text-lg text-astaDark mb-4">Payout Summary</h3>
+            <div class="space-y-3">
+                <div class="flex justify-between">
+                    <span class="text-gray-600">First Sale Bonus</span>
+                    <span class="font-medium">₹67,570.00</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Team Sales Bonus</span>
+                    <span class="font-medium">₹291,180.00</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Team Sales Level Bonus</span>
+                    <span class="font-medium">₹23,452.00</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Self Repurchase Bonus</span>
+                    <span class="font-medium">₹200.00</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Reward Bonus</span>
+                    <span class="font-medium">₹70,000.00</span>
+                </div>
+                <div class="pt-3 mt-3 border-t border-astaLight">
+                    <div class="flex justify-between font-semibold text-astaDark">
+                        <span>Total Payment</span>
+                        <span>₹452,402.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profit/Loss Summary -->
+        <div class="bg-white border border-astaLight rounded-lg p-6 shadow-asta">
+            <h3 class="font-semibold text-lg text-astaDark mb-4">Profit/Loss Summary</h3>
+            <div class="space-y-3">
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Total Sales</span>
+                    <span class="font-medium text-green-600">+₹1,326,400.00</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Admin Charges</span>
+                    <span class="font-medium text-green-600">+₹22,620.10</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Product Cost</span>
+                    <span class="font-medium text-red-600">-₹68,425.00</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Total Distribution</span>
+                    <span class="font-medium text-red-600">-₹452,402.00</span>
+                </div>
+                <div class="pt-3 mt-3 border-t border-astaLight">
+                    <div class="flex justify-between font-semibold">
+                        <span class="text-astaDark">Net Profit</span>
+                        <span class="text-green-600">₹828,193.10</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profit and Wallet Balance Cards -->
+    <!-- <div class="bg-white rounded-lg shadow-sm mb-6"> -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 my-6">
+            <!-- Profit Card -->
+            <div class="bg-white border border-astaLight rounded-lg p-6 shadow-asta hover:shadow-asta-lg transition-all duration-300">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-sm font-medium text-gray-500">Approximate Profit</p>
+                        <h3 class="text-2xl font-bold mt-1 text-astaDark">₹828,193.10</h3>
+                    </div>
+                    <div class="bg-astaLight p-3 rounded-full">
+                        <i class="fas fa-chart-pie text-astaPrimary"></i>
+                    </div>
+                </div>
+                <div class="mt-4 space-y-2">
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-600">Product Cost</span>
+                        <span class="font-medium text-red-600">-₹68,425.00</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-600">Total Distribution</span>
+                        <span class="font-medium text-red-600">-₹452,402.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wallet Balance Card -->
+            <div class="bg-white border border-astaLight rounded-lg p-6 shadow-asta hover:shadow-asta-lg transition-all duration-300">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-sm font-medium text-gray-500">Member's Bonus Wallet Balance</p>
+                        <h3 class="text-2xl font-bold mt-1 text-astaDark">₹226,227.45</h3>
+                    </div>
+                    <div class="bg-astaLight p-3 rounded-full">
+                        <i class="fas fa-wallet text-astaPrimary"></i>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <a href="#" class="inline-flex items-center text-sm text-astaPrimary hover:text-astaDark">
+                        View Wallet Details
+                        <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    <!-- </div> -->
+
+</div>

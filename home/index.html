@@ -1,0 +1,1190 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Astalife Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+      <!-- Include html2pdf library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              astaPrimary: '#1A5D1A',
+              astaSecondary: '#F49D1A',
+              astaAccent: '#FFD93D',
+              astaLight: '#E8F9E8',
+              astaDark: '#0C3A0C',
+              astaFooter: '#081F08',
+              primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                        }
+            },
+            primary: {
+                    50: '#f0f9ff',
+                    100: '#e0f2fe',
+                    500: '#3b82f6',
+                    600: '#2563eb',
+                    },
+            boxShadow: {
+              'asta': '0 4px 20px rgba(26, 93, 26, 0.15)',
+              'asta-lg': '0 10px 30px rgba(26, 93, 26, 0.2)'
+            }
+          }
+        }
+      }
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- <style>
+      .sidebar-link.active {
+        background-color: #eff6ff;
+        color: #3b82f6;
+      }
+      .sidebar-link.active i {
+        color: #3b82f6 !important;
+      }
+    </style> -->
+        <style>
+        /* Custom scrollbar styling */
+        .scrollbar-style::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+        
+        .scrollbar-style::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .scrollbar-style::-webkit-scrollbar-thumb {
+            background: #cbd5e0;
+            border-radius: 10px;
+        }
+        
+        .scrollbar-style::-webkit-scrollbar-thumb:hover {
+            background: #a0aec0;
+        }
+        
+        /* For Firefox */
+        .scrollbar-style {
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e0 #f1f1f1;
+        }
+        
+        /* Sticky header and first column */
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: #ffffff;
+            box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sticky-column {
+            position: sticky;
+            left: 0;
+            z-index: 5;
+            background-color: #ffffff;
+            box-shadow: 2px 0 2px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Hover effect for rows */
+        .hover-effect tr:hover td {
+            background-color: #f7fafc;
+        }
+
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+      
+      /* Global styles */
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8faf7;
+      }
+      
+      .sidebar-link.active {
+        background-color: #e5f7e5;
+        /* color: #3b82f6; */
+        color: #0C3A0C;
+      }
+      .sidebar-link.active i {
+        color: #0C3A0C !important;
+      }
+
+      /* Scrollbar Styles for Sidebar */
+      #sidebar::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      #sidebar::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 3px;
+      }
+
+      #sidebar::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 3px;
+      }
+
+      #sidebar::-webkit-scrollbar-thumb:hover {
+        background: #a1a1a1;
+      }
+
+      /* Firefox scrollbar */
+      #sidebar {
+        scrollbar-width: thin;
+        scrollbar-color: #c1c1c1 #f1f1f1;
+      }
+      
+      /* Profile page styles */
+      .profile-avatar {
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(26, 93, 26, 0.2);
+      }
+      .profile-avatar:hover {
+        transform: scale(1.05);
+      }
+      .nav-tab {
+        transition: all 0.2s ease;
+        border-bottom: 3px solid transparent;
+      }
+      .nav-tab.active {
+        border-bottom-color: #1A5D1A;
+        color: #1A5D1A;
+      }
+      .nav-tab:hover:not(.active) {
+        color: #1A5D1A;
+      }
+      .file-upload:hover .file-upload-label {
+        background-color: #f1f9f1;
+      }
+      .floating-action-btn {
+        box-shadow: 0 4px 10px rgba(26, 93, 26, 0.2);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .floating-action-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(26, 93, 26, 0.3);
+      }
+      .badge-premium {
+        background: linear-gradient(135deg, #F49D1A 0%, #FFD93D 100%);
+        color: #0C3A0C;
+      }
+      .input-focus:focus {
+        border-color: #1A5D1A;
+        box-shadow: 0 0 0 3px rgba(26, 93, 26, 0.2);
+      }
+      .radio-checked:checked {
+        background-color: #1A5D1A;
+        border-color: #1A5D1A;
+      }
+      .btn-primary {
+        background-color: #1A5D1A;
+        transition: all 0.3s ease;
+      }
+      .btn-primary:hover {
+        background-color: #0C3A0C;
+        transform: translateY(-1px);
+      }
+      .tab-content {
+        display: none;
+      }
+      .tab-content.active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+
+      /* Table Container Styles */
+      .table-responsive-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 0.375rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .table-scroll-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: auto;
+        max-height: 400px;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.375rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Table Styles */
+      .data-table {
+        min-width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+      }
+
+      .data-table thead {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .data-table th {
+        background-color: #f9fafb;
+        padding: 0.75rem 1rem;
+        text-align: left;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: #6b7280;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-bottom: 1px solid #e5e7eb;
+        white-space: nowrap;
+      }
+
+      .data-table td {
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+        color: #4b5563;
+        border-bottom: 1px solid #e5e7eb;
+        white-space: nowrap;
+      }
+
+      .data-table tbody tr:hover {
+        background-color: #f3f4f6;
+      }
+
+    /* Scrollbar Styles */
+    .table-scroll-wrapper::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    .table-scroll-wrapper::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+
+    .table-scroll-wrapper::-webkit-scrollbar-thumb {
+      background: #c1c1c1;
+      border-radius: 4px;
+    }
+
+    .table-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+      background: #a1a1a1;
+    }
+
+      /* Firefox scrollbar */
+      .table-scroll-wrapper {
+        scrollbar-width: thin;
+        scrollbar-color: #c1c1c1 #f1f1f1;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 640px) {
+        .table-scroll-wrapper {
+          max-height: 300px;
+        }
+      }
+
+      @media (min-width: 641px) and (max-width: 1023px) {
+        .table-scroll-wrapper {
+          max-height: 350px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .table-scroll-wrapper {
+          max-height: 400px;
+        }
+      }
+
+      /* Dashboard Header Styles */
+      .waving-hand {
+          animation: wave 2s infinite;
+          transform-origin: 70% 70%;
+          display: inline-block;
+      }
+
+      @keyframes wave {
+          0% { transform: rotate(0deg); }
+          10% { transform: rotate(14deg); }
+          20% { transform: rotate(-8deg); }
+          30% { transform: rotate(14deg); }
+          40% { transform: rotate(-4deg); }
+          50% { transform: rotate(10deg); }
+          60% { transform: rotate(0deg); }
+          100% { transform: rotate(0deg); }
+      }
+
+      .stats-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+    
+    .stats-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 10px 25px rgba(26, 93, 26, 0.15);
+    }
+    
+    .stats-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 80px;
+      height: 80px;
+      background: currentColor;
+      opacity: 0.08;
+      border-bottom-left-radius: 100%;
+      transition: all 0.3s ease;
+    }
+    
+    .stats-card:hover::before {
+      width: 90px;
+      height: 90px;
+    }
+    
+    .stats-icon-container {
+      transition: all 0.3s ease;
+    }
+    
+    .stats-card:hover .stats-icon-container {
+      transform: rotate(5deg) scale(1.1);
+    }
+    
+    .progress-bar {
+      transition: width 1.5s ease-in-out;
+    }
+    
+    @media (max-width: 640px) {
+      .stats-card {
+        padding: 1.25rem;
+      }
+      
+      .stats-value {
+        font-size: 1.75rem;
+      }
+    }
+ 
+    /* Bonus Wallet Section  */
+    
+  .bonus-card {
+    transition: all 0.3s ease;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    border: 1px solid #e5f0e5;
+  }
+  
+  .bonus-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(26, 93, 26, 0.15);
+    border-color: #c8e6c9;
+  }
+  
+  .bonus-icon {
+    transition: all 0.3s ease;
+  }
+  
+  .bonus-card:hover .bonus-icon {
+    transform: rotate(5deg) scale(1.1);
+  }
+  
+  .view-detail-btn {
+    transition: all 0.2s ease;
+  }
+  
+  .view-detail-btn:hover {
+    transform: translateX(3px);
+    color: #0C3A0C;
+  }
+  
+  .bonus-value {
+    background: linear-gradient(135deg, #1A5D1A 0%, #0C3A0C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  @media (max-width: 768px) {
+    .bonus-card {
+      padding: 1.25rem;
+    }
+    
+    .bonus-value {
+      font-size: 1.75rem;
+    }
+  }
+
+/* Ensure PDF container matches screen display */
+  #report-content {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    /* padding: 20px; */
+  }
+/* Logo styling */
+#report-content img {
+    max-width: 119px;
+    height: auto;
+    display: block;
+    margin: 0px auto 6px;
+}
+/* Table styling */
+.bonus-report table {
+  width: 100%;
+  border-collapse: collapse;
+  margin:0;
+}
+
+.bonus-report td, .bonus-report th {
+  border: 1px solid #ddd;
+  padding: 4px;
+  text-align: left;
+}
+
+ /* PDF-specific styles */
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      background: white !important;
+    }
+    
+    #report-content {
+      width: 210mm !important;
+      height: 297mm !important;
+      margin: 0 auto !important;
+      padding: 15mm !important;
+      font-size: 12px !important;
+      font-family: Arial, sans-serif !important;
+    }
+    
+    #report-content img {
+      height: 40px !important;
+    }
+    
+    .shadow-lg, .shadow-md {
+      box-shadow: none !important;
+    }
+    
+    .bg-gradient-to-r {
+      background: linear-gradient(to right, #1A5D1A, #F49D1A) !important;
+      -webkit-print-color-adjust: exact;
+    }
+    
+    /* Ensure all content fits */
+    #report-content .text-xl {
+      font-size: 16px !important;
+    }
+    
+    #report-content .text-lg {
+      font-size: 14px !important;
+    }
+    
+    #report-content .text-sm {
+      font-size: 11px !important;
+    }
+    
+    #report-content .text-xs {
+      font-size: 10px !important;
+    }
+    
+    /* Compact spacing */
+    #report-content .mb-6 {
+      margin-bottom: 12px !important;
+    }
+    
+    #report-content .p-4, #report-content .p-6, #report-content .p-8 {
+      padding: 8px !important;
+    }
+    
+    /* Prevent page breaks */
+    #report-content {
+      page-break-inside: avoid;
+    }
+  }
+
+  </style>
+    
+  <script>
+    
+    document.addEventListener("DOMContentLoaded", function () {
+      // Load navbar
+      fetch("navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar-container").innerHTML = data;
+          initUserDropdown(); // Initialize user dropdown after navbar is loaded
+        });
+
+      // Load sidebar
+      fetch("sidebar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("sidebar-container").innerHTML = data;
+          initSidebar();
+          initDropdowns();
+          initSidebarLinks();
+
+            // Load content based on current URL or default to dashboard
+          const initialPath = window.location.hash.substring(1) || "dashboard.html";
+          loadContent(initialPath);
+        });
+    });
+
+      function initSidebar() {
+        const sidebarToggle = document.getElementById("sidebar-toggle");
+        const sidebarClose = document.getElementById("sidebar-close");
+        const sidebar = document.getElementById("sidebar");
+        const mainContent = document.getElementById("content-container");
+        const navbarContainer = document.getElementById("navbar-container");
+
+        if (sidebarToggle && sidebar && mainContent && navbarContainer) {
+          sidebarToggle.addEventListener("click", function () {
+            if (window.innerWidth >= 768) {
+              const isSidebarCollapsed = sidebar.classList.contains("md:w-20");
+
+              if (isSidebarCollapsed) {
+                sidebar.classList.remove("md:w-20");
+                sidebar.classList.add("md:w-64");
+                document.getElementById('sidebar').classList.add('overflow-y-auto');
+
+                const textElements = sidebar.querySelectorAll(".sidebar-text");
+                textElements.forEach((el) => {
+                  el.classList.remove(
+                    "opacity-0",
+                    "max-h-0",
+                    "overflow-hidden"
+                  );
+                  el.classList.add("opacity-100", "max-h-full");
+                });
+
+                mainContent.classList.remove("md:ml-20");
+                mainContent.classList.add("md:ml-64");
+                navbarContainer.classList.remove("md:left-20");
+                navbarContainer.classList.add("md:left-64");
+
+                const headerIcon = sidebar.querySelector("h1 i");
+                if (headerIcon) {
+                  headerIcon.classList.remove("mr-0");
+                  headerIcon.classList.add("mr-2");
+                }
+
+                const navIcons = sidebar.querySelectorAll("nav ul li a i");
+                navIcons.forEach((icon) => {
+                  icon.classList.remove("w-full", "text-center");
+                });
+
+                const navTextSpans = sidebar.querySelectorAll(
+                  "nav ul li a span:not(.ml-auto)"
+                );
+                navTextSpans.forEach((span) => {
+                  span.classList.remove("ml-0");
+                  span.classList.add("ml-3");
+                });
+              } else {
+                sidebar.classList.remove("md:w-64");
+                sidebar.classList.add("md:w-20");
+                 document.getElementById('sidebar').classList.remove('overflow-y-auto');
+
+                const textElements = sidebar.querySelectorAll(".sidebar-text");
+                textElements.forEach((el) => {
+                  el.classList.add("opacity-0", "max-h-0", "overflow-hidden");
+                  el.classList.remove("opacity-100", "max-h-full");
+                });
+
+                mainContent.classList.remove("md:ml-64");
+                mainContent.classList.add("md:ml-20");
+                navbarContainer.classList.remove("md:left-64");
+                navbarContainer.classList.add("md:left-20");
+
+                const headerIcon = sidebar.querySelector("h1 i");
+                if (headerIcon) {
+                  headerIcon.classList.remove("mr-2");
+                  headerIcon.classList.add("mr-0");
+                }
+
+                const navIcons = sidebar.querySelectorAll("nav ul li a i");
+                navIcons.forEach((icon) => {
+                  icon.classList.add("w-full", "text-center");
+                });
+
+                const navTextSpans = sidebar.querySelectorAll(
+                  "nav ul li a span:not(.ml-auto)"
+                );
+                navTextSpans.forEach((span) => {
+                  span.classList.remove("ml-3");
+                  span.classList.add("ml-0");
+                });
+              }
+            } else {
+              sidebar.classList.remove("-translate-x-full");
+              document.body.classList.add("overflow-hidden");
+            }
+          });
+
+          if (sidebarClose) {
+            sidebarClose.addEventListener("click", function () {
+              sidebar.classList.add("-translate-x-full");
+              document.body.classList.remove("sidebar-open");
+            });
+          }
+
+          document.addEventListener("click", function (event) {
+            if (
+              window.innerWidth < 768 &&
+              !sidebar.contains(event.target) &&
+              !sidebarToggle.contains(event.target) &&
+              !sidebar.classList.contains("-translate-x-full")
+            ) {
+              sidebar.classList.add("-translate-x-full");
+              document.body.classList.remove("overflow-hidden");
+            }
+          });
+
+          window.addEventListener("resize", function () {
+            if (window.innerWidth >= 768) {
+              sidebar.classList.remove("-translate-x-full");
+              document.body.classList.remove("sidebar-open");
+
+              if (
+                !sidebar.classList.contains("md:w-64") &&
+                !sidebar.classList.contains("md:w-20")
+              ) {
+                sidebar.classList.add("md:w-64");
+              }
+            } else {
+              if (
+                !sidebar.classList.contains("-translate-x-full") &&
+                !sidebarToggle.contains(document.activeElement)
+              ) {
+                sidebar.classList.add("-translate-x-full");
+              }
+            }
+          });
+        }
+      }
+
+      function initDropdowns() {
+        const myAccountDropdownToggle = document.getElementById("myAccountDropdownToggle");
+        const myAccountDropdown = document.getElementById("myAccountDropdown");
+        const teamDetailsDropdownToggle = document.getElementById("teamDetailsDropdownToggle");
+        const teamDetailsDropdown = document.getElementById("teamDetailsDropdown");
+        const walletDetailsDropdownToggle = document.getElementById("walletDetailsDropdownToggle");
+        const walletDetailsDropdown = document.getElementById("walletDetailsDropdown");
+        const shoppingDetailsDropdownToggle = document.getElementById("shoppingDetailsDropdownToggle");
+        const shoppingDetailsDropdown = document.getElementById("shoppingDetailsDropdown");
+        const bonusReportsDropdownToggle = document.getElementById("bonusReportsDropdownToggle");
+        const bonusReportsDropdown = document.getElementById("bonusReportsDropdown");
+
+        
+        if (myAccountDropdownToggle && myAccountDropdown) {
+          myAccountDropdownToggle.addEventListener("click", function (event) {
+            event.preventDefault();
+            myAccountDropdown.classList.toggle("hidden");
+            const chevronIcon = myAccountDropdownToggle.querySelector(".fa-chevron-down");
+            if (chevronIcon) {
+              chevronIcon.classList.toggle("rotate-180");
+            }
+          });
+        }
+
+        if (teamDetailsDropdownToggle && teamDetailsDropdown) {
+          teamDetailsDropdownToggle.addEventListener("click", function (event) {
+            event.preventDefault();
+            teamDetailsDropdown.classList.toggle("hidden");
+            const chevronIcon = teamDetailsDropdownToggle.querySelector(".fa-chevron-down");
+            if (chevronIcon) {
+              chevronIcon.classList.toggle("rotate-180");
+            }
+          });
+        }
+        
+        if (walletDetailsDropdownToggle && walletDetailsDropdown) {
+          walletDetailsDropdownToggle.addEventListener("click", function (event) {
+            event.preventDefault();
+            walletDetailsDropdown.classList.toggle("hidden");
+            const chevronIcon = walletDetailsDropdownToggle.querySelector(".fa-chevron-down");
+            if (chevronIcon) {
+              chevronIcon.classList.toggle("rotate-180");
+            }
+          });
+        }
+
+        if (shoppingDetailsDropdownToggle && shoppingDetailsDropdown) {
+          shoppingDetailsDropdownToggle.addEventListener("click", function (event) {
+            event.preventDefault();
+            shoppingDetailsDropdown.classList.toggle("hidden");
+            const chevronIcon = shoppingDetailsDropdownToggle.querySelector(".fa-chevron-down");
+            if (chevronIcon) {
+              chevronIcon.classList.toggle("rotate-180");
+            }
+          });
+        }
+
+        if (bonusReportsDropdownToggle && bonusReportsDropdown) {
+          bonusReportsDropdownToggle.addEventListener("click", function (event) {
+            event.preventDefault();
+            bonusReportsDropdown.classList.toggle("hidden");
+            const chevronIcon = bonusReportsDropdownToggle.querySelector(".fa-chevron-down");
+            if (chevronIcon) {
+              chevronIcon.classList.toggle("rotate-180");
+            }
+          });
+        }
+
+        document.addEventListener("click", function (event) {
+          if (!event.target.closest("#myAccountDropdownToggle") && !event.target.closest("#myAccountDropdown")) {
+            if (myAccountDropdown) {
+              myAccountDropdown.classList.add("hidden");
+              const myAccountChevron = myAccountDropdownToggle.querySelector(".fa-chevron-down");
+              if (myAccountChevron) myAccountChevron.classList.remove("rotate-180");
+            }
+          }
+
+          if (!event.target.closest("#teamDetailsDropdownToggle") && !event.target.closest("#teamDetailsDropdown")) {
+            if (teamDetailsDropdown) {
+              teamDetailsDropdown.classList.add("hidden");
+              const teamDetailsChevron = teamDetailsDropdownToggle.querySelector(".fa-chevron-down");
+              if (teamDetailsChevron) teamDetailsChevron.classList.remove("rotate-180");
+            }
+          }
+
+          if (!event.target.closest("#walletDetailsDropdownToggle") && !event.target.closest("#walletDetailsDropdown")) {
+            if (walletDetailsDropdown) {
+              walletDetailsDropdown.classList.add("hidden");
+              const walletDetailsChevron = walletDetailsDropdownToggle.querySelector(".fa-chevron-down");
+              if (walletDetailsChevron) walletDetailsChevron.classList.remove("rotate-180");
+            }
+          }
+
+          if (!event.target.closest("#shoppingDetailsDropdownToggle") && !event.target.closest("#shoppingDetailsDropdown")) {
+            if (shoppingDetailsDropdown) {
+              shoppingDetailsDropdown.classList.add("hidden");
+              const shoppingDetailsChevron = shoppingDetailsDropdownToggle.querySelector(".fa-chevron-down");
+              if (shoppingDetailsChevron) shoppingDetailsChevron.classList.remove("rotate-180");
+            }
+          }
+
+          if (!event.target.closest("#bonusReportsDropdownToggle") && !event.target.closest("#bonusReportsDropdown")) {
+            if (bonusReportsDropdown) {
+              bonusReportsDropdown.classList.add("hidden");
+              const bonusReportsChevron = bonusReportsDropdownToggle.querySelector(".fa-chevron-down");
+              if (bonusReportsChevron) bonusReportsChevron.classList.remove("rotate-180"); 
+            }
+          }
+
+        });
+
+      }
+
+      // New function for user dropdown in navbar
+      function initUserDropdown() {
+        const userMenuButton = document.getElementById('user-menu-button');
+        const userDropdown = document.getElementById('user-dropdown');
+        const verificationToggle = document.getElementById('verification-toggle');
+        const verificationDropdown = document.getElementById('verification-dropdown');
+        const verificationBadge = document.getElementById('verification-badge');
+
+
+        if (userMenuButton && userDropdown) {
+          userMenuButton.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent this click from triggering the document click listener
+            userDropdown.classList.toggle('hidden');
+          });
+
+          // Close dropdown when clicking anywhere else
+          document.addEventListener('click', function(event) {
+            // Check if the click is outside the user menu button and the dropdown
+            if (!userMenuButton.contains(event.target) && !userDropdown.contains(event.target)) {
+              userDropdown.classList.add('hidden');
+            }
+          });
+
+          // Prevent dropdown from closing when clicking inside it
+          userDropdown.addEventListener('click', function(e) {
+            e.stopPropagation();
+          });
+        }
+
+        if (verificationToggle && verificationDropdown) {
+            verificationToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                verificationDropdown.classList.toggle('hidden');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!verificationToggle.contains(e.target) && !verificationDropdown.contains(e.target)) {
+                    verificationDropdown.classList.add('hidden');
+                }
+            });
+
+            // Check if any items are incomplete to show badge
+            const incompleteItems = document.querySelectorAll('#verification-dropdown .fa-times-circle');
+            if (incompleteItems.length > 0) {
+                verificationBadge.classList.remove('hidden');
+            }
+        }
+
+      }
+
+    function loadContent(page) {
+    // Update URL hash
+    window.location.hash = page;
+
+    // Show loading state
+    const contentContainer = document.getElementById("content-container");
+    contentContainer.innerHTML = `
+        <div class="flex justify-center items-center h-64">
+            <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        </div>
+    `;
+
+    // Clean up previous page styles
+    document.querySelectorAll('style[data-dynamic-style]').forEach(el => el.remove());
+
+    let fetchPath = page.startsWith('#') ? page.substring(1) : page;
+
+    fetch(fetchPath)
+        .then((response) => {
+            if (!response.ok) {
+                if (response.status === 404) return loadGenericTemplate(fetchPath);
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.text();
+        })
+        .then((data) => {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = data;
+
+            // Process and inject styles with unique markers
+            tempDiv.querySelectorAll('style').forEach((style, index) => {
+                const newStyle = document.createElement('style');
+                newStyle.textContent = style.textContent;
+                newStyle.setAttribute('data-dynamic-style', `page-${Date.now()}-${index}`);
+                document.head.appendChild(newStyle);
+            });
+
+            // Extract and inject content
+            const bodyContent = tempDiv.querySelector('body') || tempDiv;
+            contentContainer.innerHTML = bodyContent.innerHTML;
+            
+            // Reinitialize scripts and update UI
+            setTimeout(() => {
+                reinitializePageScripts(fetchPath);
+                updateActiveLink(page);
+            }, 50); // Small delay to ensure DOM is ready
+        })
+        .catch((error) => {
+            console.error("Error loading content:", error);
+            contentContainer.innerHTML = `
+                <div class="p-6 bg-white rounded-lg shadow-sm">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">Error Loading Content</h2>
+                    <p class="text-red-500">Could not load ${page}. Please try again later.</p>
+                    <button onclick="loadContent('dashboard.html')" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                        Return to Dashboard
+                    </button>
+                </div>
+            `;
+        });
+    }
+      function loadGenericTemplate(pagePath) {
+        const pathParts = pagePath.split('/');
+        const pageName = pathParts[pathParts.length - 1].replace('.html', '');
+        const section = pathParts.length > 1 ? pathParts[0] : 'general';
+
+        return Promise.resolve(`
+          <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">${formatTitle(pageName)}</h2>
+            <p class="text-gray-600">This is the ${formatTitle(pageName)} page content.</p>
+            ${generateSampleContent(section, pageName)}
+          </div>
+        `);
+      }
+
+      function formatTitle(str) {
+        return str.split('-').map(word =>
+          word.charAt(0).toUpperCase() + word.slice(1)
+        ).join(' ');
+      }
+
+      function generateSampleContent(section, pageName) {
+        switch(section) {
+          case 'my-account':
+            return `
+              <div class="mt-6">
+                <h3 class="text-lg font-medium text-gray-700 mb-2">Account Information</h3>
+                <p class="text-gray-600">This would display your ${pageName.replace('-', ' ')} details.</p>
+                <div class="bg-gray-100 p-4 rounded mt-4">
+                  <p class="text-sm text-gray-500">Sample user data would appear here.</p>
+                </div>
+              </div>
+            `;
+          case 'team-details':
+            return `
+              <div class="mt-6">
+                <h3 class="text-lg font-medium text-gray-700 mb-2">Team Statistics</h3>
+                <p class="text-gray-600">This would display your ${pageName.replace('-', ' ')} information.</p>
+                <div class="bg-gray-100 p-4 rounded mt-4">
+                  <p class="text-sm text-gray-500">Sample team data would appear here.</p>
+                </div>
+              </div>
+            `;
+          default:
+            return `
+              <div class="mt-6">
+                <div class="bg-gray-100 p-4 rounded">
+                  <p class="text-sm text-gray-500">Custom content for this page would appear here.</p>
+                </div>
+              </div>
+            `;
+        }
+      }
+
+      function updateActiveLink(page) {
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+        sidebarLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.dataset.target === page || link.dataset.target === `#${page}`) {
+            link.classList.add('active');
+
+            // Expand parent dropdown if this is a nested link
+            const dropdown = link.closest('ul');
+            if (dropdown && dropdown.id && dropdown.id.includes('Dropdown')) {
+              dropdown.classList.remove('hidden');
+              const toggle = document.querySelector(`[aria-controls="${dropdown.id}"]`);
+              if (toggle) {
+                const chevron = toggle.querySelector('.fa-chevron-down');
+                if (chevron) chevron.classList.add('rotate-180');
+              }
+            }
+          }
+        });
+      }
+
+      function initSidebarLinks() {
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+        sidebarLinks.forEach(link => {
+          link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const targetPage = this.dataset.target;
+            loadContent(targetPage);
+
+            // Close mobile sidebar after clicking a link
+            const sidebar = document.getElementById('sidebar');
+            if (window.innerWidth < 768) {
+              sidebar.classList.add('-translate-x-full');
+              document.body.classList.remove('overflow-hidden');
+            }
+          });
+        });
+
+        // Handle back/forward navigation
+        window.addEventListener('popstate', function() {
+          const page = window.location.hash.substring(1);
+          if (page) {
+            loadContent(page);
+          }
+        });
+      }
+            
+      function reinitializePageScripts(pagePath) {
+          // Check if this is the profile page
+          if (pagePath.includes('my-profile.html')) {
+              initProfilePage();
+          }
+
+          if (pagePath.includes('monthly-bonus-reports.html')) {
+            initPdfDownload();
+          }
+
+          // Add other page-specific initializations as needed
+      }
+
+      function initProfilePage() {
+        // Tab functionality
+        const tabs = document.querySelectorAll('[data-tab]');
+          tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+              const tabId = this.getAttribute('data-tab');   
+              // Remove active class from all tabs
+              document.querySelectorAll('.nav-tab').forEach(t => {
+                t.classList.remove('active');
+              }); 
+              // Add active class to clicked tab
+              this.classList.add('active');
+              // Hide all tab content
+              document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+              });
+              // Show selected tab content
+              document.getElementById(`${tabId}-tab`).classList.add('active');
+            });
+          });
+        // For desktop sidebar tabs
+        const desktopTabs = document.querySelectorAll('.lg\\:w-56 [data-tab]');
+        desktopTabs.forEach(tab => {
+          tab.addEventListener('click', function() {
+            const tabId = this.getAttribute('data-tab') 
+            // Update mobile tabs to match
+            document.querySelectorAll('.lg\\:hidden [data-tab]').forEach(mobileTab => {
+              mobileTab.classList.remove('active');
+              if(mobileTab.getAttribute('data-tab') === tabId) {
+                  mobileTab.classList.add('active');
+              }
+            });
+          });
+        });
+      }
+
+      // Ensure html2pdf is available
+    // Function to load html2pdf if not already available
+    function loadHtml2Pdf() {
+      return new Promise((resolve, reject) => {
+        if (typeof html2pdf !== 'undefined') {
+          resolve();
+        } else {
+          const script = document.createElement('script');
+          script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+          script.onload = resolve;
+          script.onerror = reject;
+          document.head.appendChild(script);
+        }
+      });
+    }
+
+      // function initPdfDownload() {
+      //   const downloadBtn = document.getElementById('download-pdf');
+      //   if (downloadBtn) {
+      //     downloadBtn.addEventListener('click', function() {
+      //       // Clone the content to avoid affecting the original
+      //       const element = document.getElementById('report-content').cloneNode(true);           
+      //       // Remove the download button from the PDF
+      //       const downloadBtnClone = element.querySelector('#download-pdf');
+      //       if (downloadBtnClone) {
+      //         downloadBtnClone.remove();
+      //       }
+      //       const opt = {
+      //         margin: [10, 10, 10, 10], // top, right, bottom, left
+      //         filename: 'Astalife_Monthly_Bonus_Report.pdf',
+      //         image: { type: 'jpeg', quality: 1 },
+      //         html2canvas: {  scale: 2, scrollX: 0, scrollY: 0, windowWidth: document.getElementById('report-content').scrollWidth, useCO},
+      //         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait'}
+      //       };
+      //       // Show loading indicator
+      //       const button = this;
+      //       const originalText = button.innerHTML;
+      //       button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Generating PDF...';
+      //       button.disabled = true;
+      //       // Generate PDF
+      //       html2pdf().set(opt).from(element).save().then(() => {
+      //         // Restore button state
+      //         button.innerHTML = originalText;
+      //         button.disabled = false;
+      //       });
+      //     });
+      //   }
+      // }     
+
+// In your index.html or main JS file
+async function initPdfDownload() {
+  const downloadBtn = document.getElementById('download-pdf');
+  downloadBtn.addEventListener('click', function() {
+    const button = this;
+    button.disabled = true;
+    button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Generating PDF...';
+    
+    // Clone the report content
+    const element = document.getElementById('pdf-container').cloneNode(true);
+    
+    // Remove the download button from the cloned content
+    const downloadBtnClone = element.querySelector('#download-pdf');
+    if (downloadBtnClone) {
+      downloadBtnClone.remove();
+    }
+    
+    // Create a temporary container for PDF generation
+    const pdfWrapper = document.createElement('div');
+    pdfWrapper.style.width = '210mm';
+    pdfWrapper.style.minHeight = '297mm';
+    pdfWrapper.style.margin = '0 auto';
+    pdfWrapper.style.padding = '15mm';
+    pdfWrapper.appendChild(element);
+    
+    // Temporarily add to body
+    document.body.appendChild(pdfWrapper);
+    
+    // PDF options
+    const opt = {
+      margin: 0,
+      filename: 'Astalife_Bonus_Report_Jan2025.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: {
+        scale: 2,
+        useCORS: true,
+        scrollY: 0,
+        letterRendering: true,
+        width: 1240,
+        height: 1754,
+        windowWidth: 1140
+      },
+      jsPDF: {
+        unit: 'mm',
+        format: 'a4',
+        orientation: 'portrait'
+      }
+    };
+    
+    // Generate PDF
+    html2pdf().set(opt).from(pdfWrapper).save().then(() => {
+      // Clean up
+      pdfWrapper.remove();
+      button.innerHTML = '<i class="fas fa-download mr-2"></i> Download PDF';
+      button.disabled = false;
+    }).catch(error => {
+      console.error('PDF generation error:', error);
+      alert('Failed to generate PDF. Please try again.');
+      button.innerHTML = '<i class="fas fa-download mr-2"></i> Download PDF';
+      button.disabled = false;
+    });
+  });
+
+}
+  
+  
+  </script>
+
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <div class="flex flex-col min-h-screen">
+      <div
+        id="navbar-container"
+        class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 md:left-64"
+      ></div>
+
+      <div class="flex flex-1 pt-16">
+        <div id="sidebar-container" class="fixed inset-y-0 left-0 z-50"></div>
+
+        <main
+          id="content-container"
+          class="flex-1 p-4 transition-all duration-300 md:ml-64"
+        ></main>
+      </div>
+    </div>
+  </body>
+</html>
+

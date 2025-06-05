@@ -1,0 +1,86 @@
+<header class="bg-white shadow-sm">
+    <div class="px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+            <button id="sidebar-toggle" class="text-gray-600 hover:text-gray-900">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+
+            <div class="relative hidden md:block">
+                <input type="text" placeholder="Search..."
+                    class="pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-astaPrimary focus:border-transparent w-64">
+                <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-4">
+            <!-- Verification Dropdown -->
+            <div class="relative">
+                <button id="verification-toggle" class="relative text-gray-600 hover:text-gray-900 focus:outline-none">
+                    <i class="fas fa-check-double text-xl"></i>
+                    <span id="verification-badge" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center hidden">!</span>
+                </button>
+
+                <div id="verification-dropdown" class="hidden absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-100">
+                    <div class="px-4 py-2 border-b border-gray-100">
+                        <h3 class="text-sm font-medium text-astaDark">Verification Status</h3>
+                    </div>
+                    <div class="max-h-60 overflow-y-auto">
+                        <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-astaLight">
+                            <i class="fas fa-id-card mr-2 w-4 text-center text-gray-500"></i> KYC
+                            <i class="fas fa-check-circle ml-auto text-green-500"></i>
+                        </a>
+                        <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-astaLight">
+                            <i class="fas fa-user-friends mr-2 w-4 text-center text-gray-500"></i> Nominee detail
+                            <i class="fas fa-check-circle ml-auto text-green-500"></i>
+                        </a>
+                        <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-astaLight">
+                            <i class="fas fa-arrow-left mr-2 w-4 text-center text-gray-500"></i> 1 Direct Left
+                            <i class="fas fa-times-circle ml-auto text-red-500"></i>
+                             <!-- <i class="fas fa-check-circle ml-auto text-green-500"></i> -->
+                        </a>
+                        <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-astaLight">
+                            <i class="fas fa-arrow-right mr-2 w-4 text-center text-gray-500"></i> 1 Direct Right
+                            <i class="fas fa-check-circle ml-auto text-green-500"></i>
+                        </a>
+                        <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-astaLight">
+                            <i class="fas fa-truck mr-2 w-4 text-center text-gray-500"></i> Shipping Address
+                            <i class="fas fa-times-circle ml-auto text-red-500"></i>
+                             <!-- <i class="fas fa-check-circle ml-auto text-green-500"></i> -->
+                        </a>
+                    </div>
+                    <div class="px-4 py-2 bg-astaLight text-xs text-astaDark">
+                        <p>Complete all verifications for full access</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="relative text-gray-600 hover:text-gray-900">
+                <i class="far fa-bell text-xl"></i>
+                <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">3</span>
+            </button>
+
+            <div class="relative">
+                <button id="user-menu-button" class="flex items-center space-x-2 focus:outline-none">
+                    <!-- <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="h-8 w-8 rounded-full object-cover"> -->
+                    <i class="fas fa-user text-sm pt-2 pl-3 h-8 w-8 rounded-full object-cover"></i>
+                    <span class="hidden md:inline text-sm font-medium">John Doe</span>
+                    <i class="fas fa-chevron-down text-xs text-gray-500 hidden md:inline"></i>
+                </button>
+
+                <div id="user-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-100">
+                    <a href="#" data-target="myAccount/my-profile.html" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-astaLight group sidebar-link">
+                        <i class="fas fa-user mr-2 w-4 text-center"></i> User Profile
+                    </a>
+                    <a href="#" data-target="" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-astaLight">
+                        <i class="fas fa-key mr-2 w-4 text-center"></i> Change Password
+                    </a>
+                    <div class="border-t border-gray-200"></div>
+                    <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-astaLight">
+                        <i class="fas fa-sign-out-alt mr-2 w-4 text-center"></i> Log Out
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+

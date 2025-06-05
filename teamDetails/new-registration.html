@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | Asta Life</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        astaPrimary: '#1A5D1A',
+                        astaSecondary: '#F49D1A',
+                        astaAccent: '#FFD93D',
+                        astaLight: '#E8F9E8',
+                        astaDark: '#0C3A0C',
+                        astaFooter: '#081F08'
+                    },
+                    boxShadow: {
+                        'asta': '0 4px 20px rgba(26, 93, 26, 0.15)',
+                        'asta-lg': '0 10px 30px rgba(26, 93, 26, 0.2)'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8faf7;
+        }
+        .profile-avatar {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26, 93, 26, 0.2);
+        }
+        .profile-avatar:hover {
+            transform: scale(1.05);
+        }
+        .nav-tab {
+            transition: all 0.2s ease;
+            border-bottom: 3px solid transparent;
+        }
+        .nav-tab.active {
+            border-bottom-color: #1A5D1A;
+            color: #1A5D1A;
+        }
+        .nav-tab:hover:not(.active) {
+            color: #1A5D1A;
+        }
+        .file-upload:hover .file-upload-label {
+            background-color: #f1f9f1;
+        }
+        .floating-action-btn {
+            box-shadow: 0 4px 10px rgba(26, 93, 26, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .floating-action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(26, 93, 26, 0.3);
+        }
+        .badge-premium {
+            background: linear-gradient(135deg, #F49D1A 0%, #FFD93D 100%);
+            color: #0C3A0C;
+        }
+        .input-focus:focus {
+            border-color: #1A5D1A;
+            box-shadow: 0 0 0 3px rgba(26, 93, 26, 0.2);
+        }
+        .radio-checked:checked {
+            background-color: #1A5D1A;
+            border-color: #1A5D1A;
+        }
+        .btn-primary {
+            background-color: #1A5D1A;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #0C3A0C;
+            transform: translateY(-1px);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen flex flex-col">
+        <!-- User Info Card -->
+        <div class="container mx-auto px-4 mt-6 z-10">
+            <div class="bg-white rounded-xl shadow-asta overflow-hidden border border-astaLight">
+                <div class="p-6 flex flex-col md:flex-row items-start md:items-center">
+                    <div class="flex items-center space-x-6 mb-4 md:mb-0">
+                        <div class="relative profile-avatar">
+                            <!-- Default avatar with initials -->
+                            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-astaPrimary to-astaSecondary flex items-center justify-center text-white overflow-hidden">
+                                <span class="text-3xl font-bold">AL</span>
+                                <!-- Alternatively use an icon -->
+                                <!-- <i class="fas fa-user text-3xl"></i> -->
+                            </div>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-astaDark">Asta Life</h2>
+                            <div class="flex items-center space-x-2 mt-1">
+                                <span class="text-xs font-semibold badge-premium px-3 py-1 rounded-full">Premium Member</span>
+                                <span class="text-xs bg-astaLight text-astaPrimary px-2 py-1 rounded-full">Verified</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-1 md:ml-8 grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="bg-astaLight p-3 rounded-lg border border-astaLight/50">
+                            <p class="text-xs text-astaPrimary uppercase tracking-wider font-medium">Member ID</p>
+                            <p class="font-semibold text-astaDark">Astal.fie</p>
+                        </div>
+                        <div class="bg-astaLight p-3 rounded-lg border border-astaLight/50">
+                            <p class="text-xs text-astaPrimary uppercase tracking-wider font-medium">Mobile</p>
+                            <p class="font-semibold text-astaDark">900000001</p>
+                        </div>
+                        <div class="bg-astaLight p-3 rounded-lg border border-astaLight/50">
+                            <p class="text-xs text-astaPrimary uppercase tracking-wider font-medium">Email</p>
+                            <p class="font-semibold text-astaDark truncate">user@email.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="container mx-auto px-4 py-6 flex-1">
+            <!-- Tab Navigation - Mobile First -->
+            <div class="lg:hidden mb-6 overflow-x-auto">
+                <div class="flex space-x-1 w-max">
+                    <button data-tab="personal" class="nav-tab active px-4 py-2 text-sm font-medium whitespace-nowrap">
+                        <i class="fas fa-user mr-2"></i>Personal
+                    </button>
+                    <button data-tab="address" class="nav-tab px-4 py-2 text-sm font-medium whitespace-nowrap">
+                        <i class="fas fa-home mr-2"></i>Address
+                    </button>
+                    <button data-tab="nominee" class="nav-tab px-4 py-2 text-sm font-medium whitespace-nowrap">
+                        <i class="fas fa-users mr-2"></i>Nominee
+                    </button>
+                    <button data-tab="bank" class="nav-tab px-4 py-2 text-sm font-medium whitespace-nowrap">
+                        <i class="fas fa-university mr-2"></i>Bank
+                    </button>
+                    <button data-tab="kyc" class="nav-tab px-4 py-2 text-sm font-medium whitespace-nowrap">
+                        <i class="fas fa-id-card mr-2"></i>KYC
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-6">
+                <!-- Sidebar Navigation - Desktop -->
+                <div class="hidden lg:block w-full lg:w-56 flex-shrink-0">
+                    <nav class="bg-white rounded-xl shadow-sm p-4 sticky top-6 border border-astaLight">
+                        <ul class="space-y-1">
+                            <li>
+                                <button data-tab="personal" class="w-full text-left flex items-center space-x-3 px-3 py-3 rounded-lg font-medium nav-tab active">
+                                    <i class="fas fa-user text-astaPrimary w-5"></i>
+                                    <span>Personal Info</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button data-tab="address" class="w-full text-left flex items-center space-x-3 px-3 py-3 text-gray-600 rounded-lg font-medium nav-tab">
+                                    <i class="fas fa-home text-current w-5"></i>
+                                    <span>Address Info</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button data-tab="nominee" class="w-full text-left flex items-center space-x-3 px-3 py-3 text-gray-600 rounded-lg font-medium nav-tab">
+                                    <i class="fas fa-users text-current w-5"></i>
+                                    <span>Nominee Info</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button data-tab="bank" class="w-full text-left flex items-center space-x-3 px-3 py-3 text-gray-600 rounded-lg font-medium nav-tab">
+                                    <i class="fas fa-university text-current w-5"></i>
+                                    <span>Bank Info</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button data-tab="kyc" class="w-full text-left flex items-center space-x-3 px-3 py-3 text-gray-600 rounded-lg font-medium nav-tab">
+                                    <i class="fas fa-id-card text-current w-5"></i>
+                                    <span>KYC Update</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="flex-1">
+                    <!-- Personal Info Tab -->
+                    <div id="personal-tab" class="tab-content active">
+                        <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-astaLight">
+                            <div class="border-b border-astaLight px-6 py-4 flex justify-between items-center bg-astaLight/30">
+                                <h3 class="text-lg font-semibold text-astaDark">Personal Details</h3>
+                                <div class="flex space-x-2">
+                                    <button class="p-2 text-gray-500 hover:text-astaPrimary hover:bg-astaLight rounded-full transition">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <form class="p-6">
+                                <!-- Profile Image Upload -->
+                                <div class="mb-8">
+                                    <label class="block text-sm font-medium text-astaPrimary mb-3">Profile Photo</label>
+                                    <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                                        <div class="relative group">
+                                            <div class="w-24 h-24 rounded-full bg-gradient-to-br from-astaPrimary to-astaSecondary flex items-center justify-center text-white overflow-hidden shadow-inner">
+                                                <span class="text-4xl font-bold">AL</span>
+                                            </div>
+                                            <button type="button" class="absolute bottom-0 right-0 bg-astaSecondary text-astaDark p-2 rounded-full hover:bg-astaAccent transition shadow-md floating-action-btn">
+                                                <i class="fas fa-camera text-xs"></i>
+                                            </button>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-3">
+                                                <label class="file-upload">
+                                                    <span class="file-upload-label cursor-pointer bg-white border border-astaLight rounded-lg px-4 py-2.5 text-sm font-medium text-astaPrimary hover:bg-astaLight transition flex items-center justify-center space-x-2">
+                                                        <i class="fas fa-cloud-upload-alt"></i>
+                                                        <span>Upload Photo</span>
+                                                    </span>
+                                                    <input type="file" class="sr-only">
+                                                </label>
+                                                <button type="button" class="px-4 py-2.5 border border-transparent text-sm font-medium rounded-lg text-astaPrimary hover:bg-astaLight transition flex items-center justify-center space-x-2">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                    <span>Remove</span>
+                                                </button>
+                                            </div>
+                                            <p class="mt-2 text-xs text-gray-500">JPG, GIF or PNG. Max size of 2MB</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Form Fields -->
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="father-name" class="block text-sm font-medium text-astaPrimary mb-1.5">Father's Name</label>
+                                        <div class="relative">
+                                            <input type="text" id="father-name" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none input-focus placeholder-gray-400 transition">
+                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                                <i class="fas fa-user-tag text-gray-400 text-sm"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="dob" class="block text-sm font-medium text-astaPrimary mb-1.5">Date of Birth</label>
+                                        <div class="relative">
+                                            <input type="date" id="dob" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none input-focus placeholder-gray-400 transition">
+                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                                <i class="fas fa-calendar-alt text-gray-400 text-sm"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-astaPrimary mb-1.5">Gender</label>
+                                        <div class="grid grid-cols-3 gap-2">
+                                            <label class="flex items-center justify-center space-x-2 px-3 py-2.5 border border-gray-300 rounded-lg hover:border-astaPrimary cursor-pointer has-[:checked]:border-astaPrimary has-[:checked]:bg-astaLight transition">
+                                                <input type="radio" name="gender" class="h-4 w-4 radio-checked focus:ring-astaPrimary">
+                                                <span class="text-gray-700">Male</span>
+                                            </label>
+                                            <label class="flex items-center justify-center space-x-2 px-3 py-2.5 border border-gray-300 rounded-lg hover:border-astaPrimary cursor-pointer has-[:checked]:border-astaPrimary has-[:checked]:bg-astaLight transition">
+                                                <input type="radio" name="gender" class="h-4 w-4 radio-checked focus:ring-astaPrimary">
+                                                <span class="text-gray-700">Female</span>
+                                            </label>
+                                            <label class="flex items-center justify-center space-x-2 px-3 py-2.5 border border-gray-300 rounded-lg hover:border-astaPrimary cursor-pointer has-[:checked]:border-astaPrimary has-[:checked]:bg-astaLight transition">
+                                                <input type="radio" name="gender" class="h-4 w-4 radio-checked focus:ring-astaPrimary">
+                                                <span class="text-gray-700">Other</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="mobile" class="block text-sm font-medium text-astaPrimary mb-1.5">Mobile Number</label>
+                                        <div class="relative">
+                                            <input type="tel" id="mobile" value="900000001" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none bg-astaLight" readonly>
+                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                                <i class="fas fa-mobile-alt text-gray-400 text-sm"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="aadhar" class="block text-sm font-medium text-astaPrimary mb-1.5">Aadhar Number</label>
+                                        <div class="relative">
+                                            <input type="text" id="aadhar" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none input-focus placeholder-gray-400 transition">
+                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                                <i class="fas fa-id-card text-gray-400 text-sm"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="email" class="block text-sm font-medium text-astaPrimary mb-1.5">Email</label>
+                                        <div class="relative">
+                                            <input type="email" id="email" value="user@email.com" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none bg-astaLight" readonly>
+                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                                <i class="fas fa-envelope text-gray-400 text-sm"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-8 pt-6 border-t border-astaLight flex justify-end space-x-3">
+                                    <button type="button" class="px-6 py-2.5 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-astaPrimary transition">
+                                        Cancel
+                                    </button>
+                                    <button type="submit" class="px-6 py-2.5 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white btn-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-astaPrimary transition flex items-center space-x-2">
+                                        <i class="fas fa-save"></i>
+                                        <span>Save Changes</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Address Info Tab -->
+                    <div id="address-tab" class="tab-content">
+                        <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-astaLight">
+                            <div class="border-b border-astaLight px-6 py-4 flex justify-between items-center bg-astaLight/30">
+                                <h3 class="text-lg font-semibold text-astaDark">Address Information</h3>
+                            </div>
+                            <div class="p-6">
+                                <p class="text-gray-600">Address information will be displayed here.</p>
+                                <!-- Add address form fields here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nominee Info Tab -->
+                    <div id="nominee-tab" class="tab-content">
+                        <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-astaLight">
+                            <div class="border-b border-astaLight px-6 py-4 flex justify-between items-center bg-astaLight/30">
+                                <h3 class="text-lg font-semibold text-astaDark">Nominee Information</h3>
+                            </div>
+                            <div class="p-6">
+                                <p class="text-gray-600">Nominee information will be displayed here.</p>
+                                <!-- Add nominee form fields here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bank Info Tab -->
+                    <div id="bank-tab" class="tab-content">
+                        <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-astaLight">
+                            <div class="border-b border-astaLight px-6 py-4 flex justify-between items-center bg-astaLight/30">
+                                <h3 class="text-lg font-semibold text-astaDark">Bank Information</h3>
+                            </div>
+                            <div class="p-6">
+                                <p class="text-gray-600">Bank information will be displayed here.</p>
+                                <!-- Add bank form fields here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KYC Update Tab -->
+                    <div id="kyc-tab" class="tab-content">
+                        <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-astaLight">
+                            <div class="border-b border-astaLight px-6 py-4 flex justify-between items-center bg-astaLight/30">
+                                <h3 class="text-lg font-semibold text-astaDark">KYC Update</h3>
+                            </div>
+                            <div class="p-6">
+                                <p class="text-gray-600">KYC documents and information will be displayed here.</p>
+                                <!-- Add KYC form fields here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('[data-tab]');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs
+                    document.querySelectorAll('.nav-tab').forEach(t => {
+                        t.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Hide all tab content
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Show selected tab content
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+                });
+            });
+            
+            // For desktop sidebar tabs, we need to handle them separately
+            const desktopTabs = document.querySelectorAll('.lg\\:w-56 [data-tab]');
+            desktopTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Update mobile tabs to match
+                    document.querySelectorAll('.lg\\:hidden [data-tab]').forEach(mobileTab => {
+                        mobileTab.classList.remove('active');
+                        if(mobileTab.getAttribute('data-tab') === tabId) {
+                            mobileTab.classList.add('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,543 @@
+<!-- tree.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Binary Tree | AstaLife</title>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-6">
+        <!-- Header Section -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+            <div>
+                <h1 class="text-2xl md:text-3xl font-bold text-astaDark">Team Binary Structure</h1>
+                <p class="text-gray-600 mt-2">View your team members in a hierarchical binary tree format</p>
+            </div>
+            <div class="mt-4 md:mt-0 flex space-x-3">
+                <button onclick="downloadAsPDF()" class="px-4 py-2 bg-astaPrimary text-white rounded-lg hover:bg-astaDark transition-colors flex items-center">
+                    <i class="fas fa-download mr-2"></i> Export PDF
+                </button>
+                <button onclick="toggleViewMode()" class="px-4 py-2 bg-white border border-astaPrimary text-astaPrimary rounded-lg hover:bg-astaLight transition-colors flex items-center">
+                    <i class="fas fa-exchange-alt mr-2"></i> Toggle View
+                </button>
+            </div>
+        </div>
+
+        <!-- Tree Visualization Container -->
+        <div id="tree-container" class="bg-white rounded-xl shadow-asta p-6 mb-6 overflow-x-auto">
+            <div class="min-w-max">
+                <!-- Level 0 (Root) -->
+                <div class="flex justify-center mb-12">
+                    <div class="relative">
+                        <div class="team-member-card bg-gradient-to-br from-astaPrimary to-astaDark">
+                            <div class="member-badge">Team Leader</div>
+                            <h3 class="text-white font-bold text-lg">Dr. AstaLife</h3>
+                            <p class="text-astaLight text-sm">Asta Life</p>
+                            <div class="member-details">
+                                <p><i class="fas fa-layer-group mr-2"></i> Asta E2E</p>
+                                <p><i class="fas fa-crown mr-2"></i> Passage Premium</p>
+                                <p><i class="fas fa-bolt mr-2"></i> Lite 0G</p>
+                            </div>
+                            <div class="member-id">
+                                <span>SPL A5A 9B00000:00</span>
+                                <span>BY Lite 0B8B 3D6F0100:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 1 -->
+                <div class="flex justify-center -mx-16 mb-12">
+                    <!-- Left Node -->
+                    <div class="relative px-16">
+                        <!-- Connector line -->
+                        <div class="connector-line left-line"></div>
+                        
+                        <div class="team-member-card bg-gradient-to-br from-astaSecondary to-astaAccent">
+                            <div class="member-badge">Left Node</div>
+                            <h3 class="text-astaDark font-bold text-lg">Dr. David</h3>
+                            <p class="text-astaDark text-sm">Jason Pike</p>
+                            <div class="member-details">
+                                <p><i class="fas fa-layer-group mr-2"></i> Asta E2E</p>
+                                <p><i class="fas fa-crown mr-2"></i> Passage Premium</p>
+                                <p><i class="fas fa-bolt mr-2"></i> Lite 0G</p>
+                            </div>
+                            <div class="member-id">
+                                <span>SPL A5B00000:00</span>
+                                <span>BY Lite 0B8B 3D6F0100:00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Node -->
+                    <div class="relative px-16">
+                        <!-- Connector line -->
+                        <div class="connector-line right-line"></div>
+                        
+                        <div class="team-member-card bg-gradient-to-br from-astaSecondary to-astaAccent">
+                            <div class="member-badge">Right Node</div>
+                            <h3 class="text-astaDark font-bold text-lg">Dr. David</h3>
+                            <p class="text-astaDark text-sm">Jason T</p>
+                            <div class="member-details">
+                                <p><i class="fas fa-layer-group mr-2"></i> Asta E2E</p>
+                                <p><i class="fas fa-crown mr-2"></i> Passage Premium</p>
+                                <p><i class="fas fa-bolt mr-2"></i> Lite 0G</p>
+                            </div>
+                            <div class="member-id">
+                                <span>SPL A5B00000:00</span>
+                                <span>BY Lite 0B8B 3D6F0100:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 2 -->
+                <div class="flex justify-center -mx-8">
+                    <!-- Left-Left Node -->
+                    <div class="relative px-8">
+                        <div class="connector-line left-line"></div>
+                        <div class="team-member-card">
+                            <h3 class="text-astaDark font-bold">Dr. David</h3>
+                            <p class="text-gray-600 text-sm">Jason T</p>
+                            <div class="member-details">
+                                <p><i class="fas fa-layer-group mr-2 text-astaPrimary"></i> Asta E2E</p>
+                                <p><i class="fas fa-crown mr-2 text-astaPrimary"></i> Passage Premium</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Left-Right Node -->
+                    <div class="relative px-8">
+                        <div class="connector-line right-line"></div>
+                        <div class="team-member-card">
+                            <h3 class="text-astaDark font-bold">Dr. David</h3>
+                            <p class="text-gray-600 text-sm">Jason T</p>
+                            <div class="member-details">
+                                <p><i class="fas fa-layer-group mr-2 text-astaPrimary"></i> Asta E2E</p>
+                                <p><i class="fas fa-bolt mr-2 text-astaPrimary"></i> Lite 0G</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right-Left Node -->
+                    <div class="relative px-8">
+                        <div class="connector-line left-line"></div>
+                        <div class="team-member-card">
+                            <h3 class="text-astaDark font-bold">Dr. David</h3>
+                            <p class="text-gray-600 text-sm">Jason T</p>
+                            <div class="member-details">
+                                <p><i class="fas fa-crown mr-2 text-astaPrimary"></i> Passage Premium</p>
+                                <p><i class="fas fa-bolt mr-2 text-astaPrimary"></i> Lite 0G</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right-Right Node -->
+                    <div class="relative px-8">
+                        <div class="connector-line right-line"></div>
+                        <div class="team-member-card">
+                            <h3 class="text-astaDark font-bold">Dr. David</h3>
+                            <p class="text-gray-600 text-sm">Jason T</p>
+                            <div class="member-details">
+                                <p><i class="fas fa-layer-group mr-2 text-astaPrimary"></i> Asta E2E</p>
+                                <p><i class="fas fa-bolt mr-2 text-astaPrimary"></i> Lite 0G</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Statistics -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="stats-card bg-white rounded-xl shadow-asta p-6 relative overflow-hidden">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-gray-500 font-medium">Total Team Members</h3>
+                        <p class="text-3xl font-bold text-astaDark mt-2">7</p>
+                    </div>
+                    <div class="stats-icon-container bg-astaLight text-astaPrimary p-3 rounded-lg">
+                        <i class="fas fa-users text-xl"></i>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between text-sm text-gray-500 mb-1">
+                        <span>Left Team</span>
+                        <span>3</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-astaPrimary h-2 rounded-full progress-bar" style="width: 60%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-card bg-white rounded-xl shadow-asta p-6 relative overflow-hidden">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-gray-500 font-medium">Active Members</h3>
+                        <p class="text-3xl font-bold text-astaDark mt-2">7</p>
+                    </div>
+                    <div class="stats-icon-container bg-astaLight text-astaPrimary p-3 rounded-lg">
+                        <i class="fas fa-user-check text-xl"></i>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between text-sm text-gray-500 mb-1">
+                        <span>This Month</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-astaAccent h-2 rounded-full progress-bar" style="width: 100%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-card bg-white rounded-xl shadow-asta p-6 relative overflow-hidden">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-gray-500 font-medium">Premium Members</h3>
+                        <p class="text-3xl font-bold text-astaDark mt-2">7</p>
+                    </div>
+                    <div class="stats-icon-container bg-astaLight text-astaPrimary p-3 rounded-lg">
+                        <i class="fas fa-crown text-xl"></i>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between text-sm text-gray-500 mb-1">
+                        <span>All Members</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-astaSecondary h-2 rounded-full progress-bar" style="width: 100%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Details Table -->
+        <div class="bg-white rounded-xl shadow-asta overflow-hidden mb-8">
+            <div class="p-6 border-b border-gray-200">
+                <h2 class="text-xl font-bold text-astaDark">Team Member Details</h2>
+            </div>
+            <div class="table-responsive-container">
+                <div class="table-scroll-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Position</th>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Plan</th>
+                                <th>Package</th>
+                                <th>SPL ID</th>
+                                <th>BY ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Team Leader</td>
+                                <td>Dr. AstaLife</td>
+                                <td>Asta E2E</td>
+                                <td>Passage Premium</td>
+                                <td>Lite 0G</td>
+                                <td>SPL A5A 9B00000:00</td>
+                                <td>Lite 0B8B 3D6F0100:00</td>
+                            </tr>
+                            <tr>
+                                <td>Left Node</td>
+                                <td>Dr. David (Jason Pike)</td>
+                                <td>Asta E2E</td>
+                                <td>Passage Premium</td>
+                                <td>Lite 0G</td>
+                                <td>SPL A5B00000:00</td>
+                                <td>Lite 0B8B 3D6F0100:00</td>
+                            </tr>
+                            <tr>
+                                <td>Right Node</td>
+                                <td>Dr. David (Jason T)</td>
+                                <td>Asta E2E</td>
+                                <td>Passage Premium</td>
+                                <td>Lite 0G</td>
+                                <td>SPL A5B00000:00</td>
+                                <td>Lite 0B8B 3D6F0100:00</td>
+                            </tr>
+                            <tr>
+                                <td>Left-Left Node</td>
+                                <td>Dr. David (Jason T)</td>
+                                <td>Asta E2E</td>
+                                <td>Passage Premium</td>
+                                <td>Lite 0G</td>
+                                <td>SPL A5B00000:00</td>
+                                <td>Lite 0B8B 3D6F0100:00</td>
+                            </tr>
+                            <tr>
+                                <td>Left-Right Node</td>
+                                <td>Dr. David (Jason T)</td>
+                                <td>Asta E2E</td>
+                                <td>Passage Premium</td>
+                                <td>Lite 0G</td>
+                                <td>SPL A5B00000:00</td>
+                                <td>Lite 0B8B 3D6F0100:00</td>
+                            </tr>
+                            <tr>
+                                <td>Right-Left Node</td>
+                                <td>Dr. David (Jason T)</td>
+                                <td>Asta E2E</td>
+                                <td>Passage Premium</td>
+                                <td>Lite 0G</td>
+                                <td>SPL A5B00000:00</td>
+                                <td>Lite 0B8B 3D6F0100:00</td>
+                            </tr>
+                            <tr>
+                                <td>Right-Right Node</td>
+                                <td>Dr. David (Jason T)</td>
+                                <td>Asta E2E</td>
+                                <td>Passage Premium</td>
+                                <td>Lite 0G</td>
+                                <td>SPL A5B00000:00</td>
+                                <td>Lite 0B8B 3D6F0100:00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Note -->
+        <div class="text-center text-gray-500 text-sm py-4">
+            <p>Copyright © 2023 by Austin's</p>
+            <p class="mt-1"><a href="https://www.mystellie.com/ALLM-MinageMember/diency/resview/14" class="text-astaPrimary hover:underline">https://www.mystellie.com/ALLM-MinageMember/diency/resview/14</a></p>
+        </div>
+    </div>
+
+    <style>
+        /* Tree-specific styles */
+        .team-member-card {
+            position: relative;
+            width: 220px;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            z-index: 2;
+            color: white;
+        }
+
+        .team-member-card:not(.bg-gradient-to-br) {
+            background-color: white;
+            color: #333;
+            border: 1px solid #e5e7eb;
+        }
+
+        .team-member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .member-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: white;
+            color: #1A5D1A;
+            font-size: 0.65rem;
+            font-weight: bold;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .member-details {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 0.75rem;
+        }
+
+        .team-member-card:not(.bg-gradient-to-br) .member-details {
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .member-details p {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .member-id {
+            margin-top: 0.75rem;
+            font-size: 0.7rem;
+            opacity: 0.9;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .connector-line {
+            position: absolute;
+            top: -20px;
+            height: 20px;
+            width: 2px;
+            background-color: #1A5D1A;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .left-line::after, .right-line::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #1A5D1A;
+        }
+
+        .left-line::after {
+            right: 0;
+        }
+
+        .right-line::after {
+            left: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .team-member-card {
+                width: 180px;
+                padding: 1rem;
+            }
+
+            #tree-container {
+                padding: 1rem;
+            }
+
+            .flex.justify-center.-mx-16 {
+                margin-left: -2rem;
+                margin-right: -2rem;
+            }
+
+            .px-16 {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+
+            .flex.justify-center.-mx-8 {
+                margin-left: -1rem;
+                margin-right: -1rem;
+            }
+
+            .px-8 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .team-member-card {
+                width: 150px;
+                font-size: 0.9rem;
+            }
+
+            .member-details, .member-id {
+                display: none;
+            }
+
+            .member-badge {
+                font-size: 0.6rem;
+                padding: 0.15rem 0.4rem;
+                top: -8px;
+                right: -8px;
+            }
+        }
+
+        /* Compact view styles */
+        .compact-view .team-member-card {
+            width: 120px;
+            padding: 0.75rem;
+        }
+
+        .compact-view .member-details,
+        .compact-view .member-id,
+        .compact-view .member-badge {
+            display: none;
+        }
+
+        .compact-view .team-member-card h3 {
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .compact-view .team-member-card p {
+            font-size: 0.75rem;
+        }
+
+        .compact-view .flex.justify-center.-mx-16 {
+            margin-left: -1rem;
+            margin-right: -1rem;
+        }
+
+        .compact-view .px-16 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .compact-view .flex.justify-center.-mx-8 {
+            margin-left: -0.5rem;
+            margin-right: -0.5rem;
+        }
+
+        .compact-view .px-8 {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+    </style>
+
+    <script>
+        // Toggle between normal and compact view
+        function toggleViewMode() {
+            document.getElementById('tree-container').classList.toggle('compact-view');
+        }
+
+        // Download as PDF functionality
+        function downloadAsPDF() {
+            const element = document.getElementById('tree-container');
+            const opt = {
+                margin: 10,
+                filename: 'asta-life-team-structure.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
+            };
+
+            // Show loading indicator
+            const loadingIndicator = document.createElement('div');
+            loadingIndicator.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            loadingIndicator.innerHTML = `
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                    <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-astaPrimary mx-auto mb-4"></div>
+                    <p class="text-lg font-medium text-gray-700">Generating PDF...</p>
+                </div>
+            `;
+            document.body.appendChild(loadingIndicator);
+
+            // Generate PDF
+            html2pdf().from(element).set(opt).save().then(() => {
+                // Remove loading indicator when done
+                document.body.removeChild(loadingIndicator);
+            });
+        }
+
+        // Animate progress bars when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>

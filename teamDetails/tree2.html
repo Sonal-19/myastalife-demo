@@ -1,0 +1,274 @@
+<!-- tree.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Tree View | AstaLife</title>
+</head>
+<body>
+    <div class="bg-astaLight min-h-screen p-4 md:p-6">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header Section -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-astaDark">Team Binary Tree</h1>
+                    <p class="text-gray-600">View your team structure in a hierarchical format</p>
+                </div>
+                <div class="flex gap-3">
+                    <button class="px-4 py-2 bg-astaPrimary text-white rounded-lg hover:bg-astaDark transition-colors">
+                        <i class="fas fa-sync-alt mr-2"></i> Refresh
+                    </button>
+                    <button id="downloadPdf" class="px-4 py-2 border border-astaPrimary text-astaPrimary rounded-lg hover:bg-astaPrimary hover:text-white transition-colors">
+                        <i class="fas fa-file-pdf mr-2"></i> Export PDF
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tree View Container -->
+            <div class="bg-white rounded-xl shadow-asta p-4 md:p-6 overflow-x-auto">
+                <!-- Level 0 (Root) -->
+                <div class="flex justify-center mb-8">
+                    <div class="relative">
+                        <!-- Root Node -->
+                        <div class="w-48 md:w-56 bg-astaPrimary text-white p-4 rounded-lg shadow-lg text-center relative z-10 transform hover:scale-105 transition-transform">
+                            <div class="flex justify-center items-center mb-2">
+                                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-astaPrimary text-xl font-bold">
+                                    AL
+                                </div>
+                            </div>
+                            <h3 class="font-bold text-lg">Dr. AstaLife</h3>
+                            <p class="text-sm opacity-90">Asta Life</p>
+                            <div class="mt-2 pt-2 border-t border-white/20 text-xs">
+                                <p>SPL: A5A 9B00000:00</p>
+                                <p>Lite: 0G</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Connector to Level 1 -->
+                        <div class="absolute left-1/2 -bottom-4 transform -translate-x-1/2 w-1 h-8 bg-astaPrimary"></div>
+                    </div>
+                </div>
+
+                <!-- Level 1 (2 nodes) -->
+                <div class="flex justify-around mb-4">
+                    <!-- Left Node -->
+                    <div class="relative w-1/2 flex justify-center">
+                        <div class="relative">
+                            <!-- Left Connector -->
+                            <div class="absolute -top-8 left-1/2 w-1 h-8 bg-astaPrimary"></div>
+                            <div class="absolute top-0 left-1/2 w-1/2 h-1 bg-astaPrimary"></div>
+                            
+                            <!-- Left Node Content -->
+                            <div class="w-40 md:w-48 bg-gradient-to-br from-astaSecondary to-astaAccent text-astaDark p-3 rounded-lg shadow-lg text-center relative z-10 transform hover:scale-105 transition-transform">
+                                <div class="flex justify-center items-center mb-2">
+                                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-astaSecondary text-lg font-bold">
+                                        JP
+                                    </div>
+                                </div>
+                                <h3 class="font-bold">Dr. David</h3>
+                                <p class="text-xs">Jason Pike</p>
+                                <div class="mt-1 pt-1 border-t border-astaDark/20 text-xxs">
+                                    <p>SPL: A5B00000:00</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Connector to Level 2 Left -->
+                            <div class="absolute left-1/2 -bottom-4 transform -translate-x-1/2 w-1 h-8 bg-astaSecondary"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Node -->
+                    <div class="relative w-1/2 flex justify-center">
+                        <div class="relative">
+                            <!-- Right Connector -->
+                            <div class="absolute -top-8 right-1/2 w-1 h-8 bg-astaPrimary"></div>
+                            <div class="absolute top-0 right-1/2 w-1/2 h-1 bg-astaPrimary"></div>
+                            
+                            <!-- Right Node Content -->
+                            <div class="w-40 md:w-48 bg-gradient-to-br from-astaSecondary to-astaAccent text-astaDark p-3 rounded-lg shadow-lg text-center relative z-10 transform hover:scale-105 transition-transform">
+                                <div class="flex justify-center items-center mb-2">
+                                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-astaSecondary text-lg font-bold">
+                                        JT
+                                    </div>
+                                </div>
+                                <h3 class="font-bold">Dr. David</h3>
+                                <p class="text-xs">Jason T</p>
+                                <div class="mt-1 pt-1 border-t border-astaDark/20 text-xxs">
+                                    <p>SPL: A5B00000:00</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Connector to Level 2 Right -->
+                            <div class="absolute left-1/2 -bottom-4 transform -translate-x-1/2 w-1 h-8 bg-astaSecondary"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 2 (4 nodes) -->
+                <div class="flex justify-around">
+                    <!-- Left Left Node -->
+                    <div class="relative w-1/4 flex justify-center">
+                        <div class="relative">
+                            <!-- Left Left Connector -->
+                            <div class="absolute -top-8 left-1/2 w-1 h-8 bg-astaSecondary"></div>
+                            <div class="absolute top-0 left-1/2 w-1/2 h-1 bg-astaSecondary"></div>
+                            
+                            <!-- Left Left Node Content -->
+                            <div class="w-32 md:w-36 bg-astaAccent text-astaDark p-3 rounded-lg shadow-md text-center transform hover:scale-105 transition-transform">
+                                <div class="flex justify-center items-center mb-1">
+                                    <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center text-astaAccent text-sm font-bold">
+                                        JT
+                                    </div>
+                                </div>
+                                <h3 class="font-bold text-sm">Dr. David</h3>
+                                <p class="text-xxs">Jason T</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Left Right Node -->
+                    <div class="relative w-1/4 flex justify-center">
+                        <div class="relative">
+                            <!-- Left Right Connector -->
+                            <div class="absolute -top-8 right-1/2 w-1 h-8 bg-astaSecondary"></div>
+                            <div class="absolute top-0 right-1/2 w-1/2 h-1 bg-astaSecondary"></div>
+                            
+                            <!-- Left Right Node Content -->
+                            <div class="w-32 md:w-36 bg-astaAccent text-astaDark p-3 rounded-lg shadow-md text-center transform hover:scale-105 transition-transform">
+                                <div class="flex justify-center items-center mb-1">
+                                    <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center text-astaAccent text-sm font-bold">
+                                        JT
+                                    </div>
+                                </div>
+                                <h3 class="font-bold text-sm">Dr. David</h3>
+                                <p class="text-xxs">Jason T</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Left Node -->
+                    <div class="relative w-1/4 flex justify-center">
+                        <div class="relative">
+                            <!-- Right Left Connector -->
+                            <div class="absolute -top-8 left-1/2 w-1 h-8 bg-astaSecondary"></div>
+                            <div class="absolute top-0 left-1/2 w-1/2 h-1 bg-astaSecondary"></div>
+                            
+                            <!-- Right Left Node Content -->
+                            <div class="w-32 md:w-36 bg-astaAccent text-astaDark p-3 rounded-lg shadow-md text-center transform hover:scale-105 transition-transform">
+                                <div class="flex justify-center items-center mb-1">
+                                    <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center text-astaAccent text-sm font-bold">
+                                        JT
+                                    </div>
+                                </div>
+                                <h3 class="font-bold text-sm">Dr. David</h3>
+                                <p class="text-xxs">Jason T</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Right Node -->
+                    <div class="relative w-1/4 flex justify-center">
+                        <div class="relative">
+                            <!-- Right Right Connector -->
+                            <div class="absolute -top-8 right-1/2 w-1 h-8 bg-astaSecondary"></div>
+                            <div class="absolute top-0 right-1/2 w-1/2 h-1 bg-astaSecondary"></div>
+                            
+                            <!-- Right Right Node Content -->
+                            <div class="w-32 md:w-36 bg-astaAccent text-astaDark p-3 rounded-lg shadow-md text-center transform hover:scale-105 transition-transform">
+                                <div class="flex justify-center items-center mb-1">
+                                    <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center text-astaAccent text-sm font-bold">
+                                        JT
+                                    </div>
+                                </div>
+                                <h3 class="font-bold text-sm">Dr. David</h3>
+                                <p class="text-xxs">Jason T</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Summary -->
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="bg-white p-4 rounded-xl shadow-asta flex items-center">
+                    <div class="bg-astaLight p-3 rounded-lg mr-4 text-astaPrimary">
+                        <i class="fas fa-users text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 text-sm">Total Team</p>
+                        <p class="text-xl font-bold text-astaDark">7 Members</p>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-asta flex items-center">
+                    <div class="bg-astaLight p-3 rounded-lg mr-4 text-astaPrimary">
+                        <i class="fas fa-layer-group text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 text-sm">Tree Levels</p>
+                        <p class="text-xl font-bold text-astaDark">3 Levels</p>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-asta flex items-center">
+                    <div class="bg-astaLight p-3 rounded-lg mr-4 text-astaPrimary">
+                        <i class="fas fa-user-plus text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 text-sm">Left Team</p>
+                        <p class="text-xl font-bold text-astaDark">4 Members</p>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-asta flex items-center">
+                    <div class="bg-astaLight p-3 rounded-lg mr-4 text-astaPrimary">
+                        <i class="fas fa-user-plus text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 text-sm">Right Team</p>
+                        <p class="text-xl font-bold text-astaDark">3 Members</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // PDF Download functionality
+            document.getElementById('downloadPdf').addEventListener('click', function() {
+                const element = document.querySelector('.bg-white.rounded-xl');
+                const opt = {
+                    margin: 10,
+                    filename: 'AstaLife_Team_Tree.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2 },
+                    jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape' }
+                };
+                
+                // Show loading
+                const btn = this;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Generating PDF...';
+                btn.disabled = true;
+                
+                // Generate PDF
+                html2pdf().from(element).set(opt).save().then(() => {
+                    btn.innerHTML = '<i class="fas fa-file-pdf mr-2"></i> Export PDF';
+                    btn.disabled = false;
+                });
+            });
+            
+            // Add hover effects to all tree nodes
+            const nodes = document.querySelectorAll('[class*="bg-"]:not(.stats-card)');
+            nodes.forEach(node => {
+                node.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                    this.style.zIndex = '20';
+                });
+                node.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                    this.style.zIndex = '10';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

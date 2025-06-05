@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - AstaLife</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom styles for floating labels and input focus effects */
+        .floating-label {
+            transition: all 0.2s ease-out;
+            transform-origin: left top;
+        }
+
+        .floating-label-active {
+            transform: translateY(-120%) scale(0.85);
+            background-color: white;
+            padding: 0 4px;
+            left: 8px !important;
+            font-weight: 500;
+            color: #1A5D1A;
+        }
+
+        .input-field:focus + .floating-label,
+        .input-field:not(:placeholder-shown) + .floating-label {
+            transform: translateY(-120%) scale(0.85);
+            background-color: white;
+            padding: 0 4px;
+            left: 8px !important;
+            font-weight: 500;
+            color: #1A5D1A;
+        }
+        
+        .input-field {
+            padding-left: 2.75rem !important;
+        }
+
+        /* Modern animated background */
+        .animated-bg {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(-45deg, #e8f9e8, #ffffff, #e8f9e8);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        .animated-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=1932&auto=format&fit=crop') center/cover;
+            opacity: 0.08;
+            z-index: 0;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating particles effect */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            display: block;
+            background-color: rgba(26, 93, 26, 0.1);
+            border-radius: 50%;
+            animation: float linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Card 3D effect */
+        .card-3d {
+            perspective: 1000px;
+            z-index: 1;
+        }
+        .card-3d-inner {
+            transition: transform 0.5s;
+            transform-style: preserve-3d;
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .card-3d:hover .card-3d-inner {
+            transform: rotateY(0deg) scale(1.01);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Password strength bars */
+        .password-strength-bar {
+            height: 6px;
+            border-radius: 9999px;
+            transition: background-color 0.3s ease-in-out;
+            width: 100%;
+        }
+
+        /* Button hover effect */
+        .btn-hover-effect {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-hover-effect:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            transition: all 0.7s ease-out;
+            transform: translate(-50%, -50%) scale(0);
+            z-index: 0;
+        }
+        .btn-hover-effect:hover:before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .btn-hover-effect span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Form container */
+        .form-container {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        astaPrimary: '#1A5D1A',
+                        astaSecondary: '#F49D1A',
+                        astaAccent: '#FFD93D',
+                        astaLight: '#E8F9E8',
+                        astaDark: '#0C3A0C',
+                        astaFooter: '#081F08'
+                    },
+                    animation: {
+                        'gradient-x': 'gradient-x 10s ease infinite',
+                    },
+                    keyframes: {
+                        'gradient-x': {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans min-h-screen flex flex-col">
+
+        <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50 py-2">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img class="h-12 w-auto" src="https://www.myastalife.com/Wresource/img/logo.png" alt="myastalife">
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center">
+                    <a href="index.html" class="text-gray-500 hover:text-astaPrimary px-3 py-2 text-sm font-medium">Back to Home</a>
+                    <a href="register.html" class="ml-4 bg-astaPrimary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-astaDark transition duration-300">Register</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-astaPrimary" aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100">Back to Home</a>
+                <a href="register.html" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Animated background particles -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Main content with animated background -->
+    <main class="flex-grow flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8 animated-bg">
+        <div class="w-full max-w-2xl card-3d form-container">
+            <div class="card-3d-inner bg-white/90 rounded-2xl shadow-2xl overflow-hidden backdrop-blur-sm">
+                <div class="py-8 px-6 sm:p-10">
+                    <div class="text-center">
+                        <img class="mx-auto h-20 w-auto mb-4" src="https://www.myastalife.com/Wresource/img/logo.png" alt="AstaLife Logo">
+                        <h2 class="mt-2 text-4xl font-extrabold text-gray-900 leading-tight">
+                            Join AstaLife Today
+                        </h2>
+                        <p class="mt-3 text-base text-gray-600">
+                            Start your journey to health and financial freedom
+                        </p>
+                    </div>
+
+                    <form class="mt-10 space-y-6" action="#" method="POST">
+                        <div class="relative group">
+                            <input id="username" name="username" type="text" autocomplete="username" required 
+                                   class="input-field peer w-full px-3 py-3 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-astaPrimary focus:border-transparent transition duration-200 placeholder-transparent">
+                            <label for="username" class="floating-label absolute left-10 top-3 text-gray-500 transition-all duration-200">User Name</label>
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-user-circle text-astaPrimary group-focus-within:text-astaDark transition duration-200"></i>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="relative group">
+                                <input id="referral-id" name="referral-id" type="text" 
+                                       class="input-field peer w-full px-3 py-3 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-astaPrimary focus:border-transparent transition duration-200 placeholder-transparent">
+                                <label for="referral-id" class="floating-label absolute left-10 top-3 text-gray-500 transition-all duration-200">Referral ID</label>
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-id-card text-astaPrimary group-focus-within:text-astaDark transition duration-200"></i>
+                                </div>
+                            </div>
+
+                            <div class="relative group">
+                                <input id="referral-details" name="referral-details" type="text" readonly
+                                       class="input-field peer w-full px-3 py-3 border border-gray-300 bg-gray-100 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-astaPrimary focus:border-transparent cursor-not-allowed transition duration-200 placeholder-transparent">
+                                <label for="referral-details" class="floating-label absolute left-10 top-3 text-gray-500 transition-all duration-200">Referral Details</label>
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-info-circle text-astaPrimary group-focus-within:text-astaDark transition duration-200"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative group">
+                            <select id="position" name="position" required
+                                    class="input-field peer w-full px-3 py-3 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-astaPrimary focus:border-transparent transition duration-200 appearance-none">
+                                <option value="" disabled selected>Select Position</option>
+                                <option value="left">Left</option>
+                                <option value="right">Right</option>
+                            </select>
+                            <label for="position" class="floating-label absolute left-10 top-3 text-gray-500 transition-all duration-200">Select Position</label>
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-map-marker-alt text-astaPrimary group-focus-within:text-astaDark transition duration-200"></i>
+                            </div>
+                            <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                <i class="fas fa-chevron-down text-gray-400"></i>
+                            </div>
+                        </div>
+
+                        <div class="relative group">
+                            <input id="pan-number" name="pan-number" type="text" required 
+                                   class="input-field peer w-full px-3 py-3 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-astaPrimary focus:border-transparent transition duration-200 uppercase placeholder-transparent"
+                                   pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"
+                                   title="Enter valid PAN number (e.g. ABCDE1234F)">
+                            <label for="pan-number" class="floating-label absolute left-10 top-3 text-gray-500 transition-all duration-200">PAN Number</label>
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-id-badge text-astaPrimary group-focus-within:text-astaDark transition duration-200"></i>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="relative group">
+                                <input id="first-name" name="first-name" type="text" autocomplete="given-name" required 
+                                       class="input-field peer w-full px-3 py-3 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-astaPrimary focus:border-transparent transition duration-200 placeholder-transparent">
+                                <label for="first-name" class="floating-label absolute left-10 top-3 text-gray-500 transition-all duration-200">First Name</label>
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-user text-astaPrimary group-focus-within:text-astaDark transition duration-200"></i>
+                                </div>
+                            </div>
+
+                            <div class="relative group">
+                                <input id="last-name" name="last-name" type="text" autocomplete="family-name" required 
+                                       class="input-field peer w-full px-3 py-3 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-astaPrimary focus:border-transparent transition duration-200 placeholder-transparent">
+                                <label for="last-name" class="floating-label absolute left-10 top-3 text-gray-500 transition-all duration-200">Last Name</label>
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-user text-astaPrimary group-focus-within:text-astaDark transition duration-200"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative group">
+                            <input id="mobile" name="mobile" type="tel" autocomplete="tel" required 
+                                    class="input-field peer w-full px-3 py-3 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-astaPrimary focus:border-transparent transition duration-200 placeholder-transparent"
+                                    pattern="[0-9]{10}"
+                                    title="Enter 10 digit mobile number"
+                                    maxlength="10"
+                                    onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                            <label for="mobile" class="floating-label absolute left-10 top-3 text-gray-500 transition-all duration-200">Mobile Number</label>
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-phone text-astaPrimary group-focus-within:text-astaDark transition duration-200"></i>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="relative group">
+                                <input id="password" name="password" type="password" autocomplete="new-password" required 
+                                       class="input-field peer w-full px-3 py-3 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-astaPrimary focus:border-transparent transition duration-200 placeholder-transparent">
+                                <label for="password" class="floating-label absolute left-10 top-3 text-gray-500 transition-all duration-200">Create Password</label>
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock mb-8 text-astaPrimary group-focus-within:text-astaDark transition duration-200"></i>
+                                </div>
+                                <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                    <button type="button" class="text-gray-400 hover:text-astaPrimary focus:outline-none transition duration-200" id="togglePassword">
+                                        <i class="fas fa-eye mb-8"></i>
+                                    </button>
+                                </div>
+                                <div class="mt-2 flex space-x-1" id="password-strength">
+                                    <div class="password-strength-bar bg-gray-200"></div>
+                                    <div class="password-strength-bar bg-gray-200"></div>
+                                    <div class="password-strength-bar bg-gray-200"></div>
+                                    <div class="password-strength-bar bg-gray-200"></div>
+                                </div>
+                                <p class="mt-1 text-xs text-gray-500" id="password-hint">
+                                    Password must be at least 8 characters
+                                </p>
+                            </div>
+
+                            <div class="relative group">
+                                <input id="confirm-password" name="confirm-password" type="password" autocomplete="new-password" required 
+                                       class="input-field peer w-full px-3 py-3 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-astaPrimary focus:border-transparent transition duration-200 placeholder-transparent">
+                                <label for="confirm-password" class="floating-label absolute left-10 top-3 text-gray-500 transition-all duration-200">Confirm Password</label>
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock mb-8 text-astaPrimary group-focus-within:text-astaDark transition duration-200"></i>
+                                </div>
+                                <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                    <button type="button" class="text-gray-400 hover:text-astaPrimary focus:outline-none transition duration-200" id="toggleConfirmPassword">
+                                        <i class="fas fa-eye mb-8"></i>
+                                    </button>
+                                </div>
+                                <p class="mt-1 text-xs text-gray-500 hidden" id="password-match">
+                                    </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start pt-2">
+                            <div class="flex items-center h-5">
+                                <input id="terms" name="terms" type="checkbox" class="focus:ring-astaPrimary h-4 w-4 text-astaPrimary border-gray-300 rounded cursor-pointer" required>
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="terms" class="font-medium text-gray-700 select-none">I agree to the <a href="#" class="text-astaPrimary hover:text-astaSecondary font-semibold transition duration-200">Terms and Conditions</a> and <a href="#" class="text-astaPrimary hover:text-astaSecondary font-semibold transition duration-200">Privacy Policy</a></label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn-hover-effect group relative w-full flex justify-center py-3 px-4 border border-transparent text-lg font-semibold rounded-lg text-white bg-gradient-to-r from-astaPrimary to-astaDark hover:from-astaDark hover:to-astaPrimary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-astaPrimary shadow-lg transform transition-transform duration-200 hover:scale-105">
+                                <span class="absolute left-0 inset-y-0 flex items-center pl-4">
+                                    <i class="fas fa-user-plus text-astaAccent group-hover:text-white transition duration-200"></i>
+                                </span>
+                                Create Account
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="px-6 py-5 bg-astaLight text-center border-t border-gray-200">
+                    <p class="text-sm text-gray-600">
+                        Already have an account? 
+                        <a href="login.html" class="font-semibold text-astaPrimary hover:text-astaSecondary transition duration-200">
+                            Sign in now
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !expanded);
+            menu.classList.toggle('hidden');
+        });
+        
+        // Password visibility toggle
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        });
+        
+        // Confirm Password visibility toggle
+        document.getElementById('toggleConfirmPassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('confirm-password');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        });
+        
+        // Floating labels
+        document.querySelectorAll('.input-field').forEach(input => {
+            const label = input.nextElementSibling;
+            if (label && label.classList.contains('floating-label')) {
+                if (input.value) {
+                    label.classList.add('floating-label-active');
+                }
+
+                input.addEventListener('input', () => {
+                    if (input.value) {
+                        label.classList.add('floating-label-active');
+                    } else {
+                        label.classList.remove('floating-label-active');
+                    }
+                });
+
+                if (input.tagName === 'SELECT') {
+                    input.addEventListener('change', () => {
+                        if (input.value) {
+                            label.classList.add('floating-label-active');
+                        } else {
+                            label.classList.remove('floating-label-active');
+                        }
+                    });
+                }
+            }
+        });
+
+        // Password strength indicator
+        document.getElementById('password').addEventListener('input', function() {
+            const password = this.value;
+            const strengthBars = document.querySelectorAll('#password-strength .password-strength-bar');
+            const hint = document.getElementById('password-hint');
+            
+            strengthBars.forEach(bar => {
+                bar.classList.remove('bg-red-500', 'bg-yellow-500', 'bg-green-500');
+                bar.classList.add('bg-gray-200');
+            });
+            
+            if (!password) {
+                hint.textContent = "Password must be at least 8 characters";
+                return;
+            }
+            
+            let strength = 0;
+            
+            if (password.length >= 8) strength++;
+            if (password.length >= 12) strength++;
+            
+            if (/[A-Z]/.test(password)) strength++;
+            if (/[0-9]/.test(password)) strength++;
+            if (/[^A-Za-z0-9]/.test(password)) strength++;
+            
+            let strengthText = "";
+            let strengthColor = "";
+            
+            if (strength <= 2) {
+                strengthColor = "bg-red-500";
+                strengthText = "Weak password";
+            } else if (strength <= 4) {
+                strengthColor = "bg-yellow-500";
+                strengthText = "Moderate password";
+            } else {
+                strengthColor = "bg-green-500";
+                strengthText = "Strong password";
+            }
+            
+            const activeBars = Math.min(Math.ceil(strength * 4 / 5), strengthBars.length);
+            for (let i = 0; i < activeBars; i++) {
+                strengthBars[i].classList.remove('bg-gray-200');
+                strengthBars[i].classList.add(strengthColor);
+            }
+            
+            hint.textContent = strengthText;
+        });
+        
+        // Password match checker
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirm-password');
+        const passwordMatch = document.getElementById('password-match');
+        
+        const checkPasswordMatch = () => {
+            if (passwordInput.value && confirmPasswordInput.value) {
+                if (passwordInput.value === confirmPasswordInput.value) {
+                    passwordMatch.classList.remove('hidden', 'text-red-500');
+                    passwordMatch.classList.add('text-green-500');
+                    passwordMatch.innerHTML = '<i class="fas fa-check"></i> Passwords match';
+                } else {
+                    passwordMatch.classList.remove('hidden', 'text-green-500');
+                    passwordMatch.classList.add('text-red-500');
+                    passwordMatch.innerHTML = '<i class="fas fa-times"></i> Passwords do not match';
+                }
+            } else {
+                passwordMatch.classList.add('hidden');
+            }
+        };
+
+        passwordInput.addEventListener('input', checkPasswordMatch);
+        confirmPasswordInput.addEventListener('input', checkPasswordMatch);
+
+        // Referral ID lookup
+        document.getElementById('referral-id').addEventListener('blur', function() {
+            const referralId = this.value;
+            const referralDetails = document.getElementById('referral-details');
+            
+            if (referralId) {
+                referralDetails.value = "Fetching details...";
+                setTimeout(() => {
+                    referralDetails.value = "Referral by: John Doe (ID: " + referralId + ")";
+                    const label = referralDetails.nextElementSibling;
+                    if (label && label.classList.contains('floating-label') && referralDetails.value) {
+                        label.classList.add('floating-label-active');
+                    }
+                }, 1000);
+            } else {
+                referralDetails.value = "";
+                const label = referralDetails.nextElementSibling;
+                if (label && label.classList.contains('floating-label')) {
+                    label.classList.remove('floating-label-active');
+                }
+            }
+        });
+
+        // Create floating particles for background
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size between 5px and 15px
+                const size = Math.random() * 10 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation duration between 10s and 30s
+                const duration = Math.random() * 20 + 10;
+                particle.style.animationDuration = `${duration}s`;
+                
+                // Random delay
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                // Random opacity
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize particles when DOM is loaded
+        document.addEventListener('DOMContentLoaded', createParticles);
+
+        // Prevent non-numeric input in mobile field (additional protection)
+        document.getElementById('mobile').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+    </script>
+</body>
+</html>

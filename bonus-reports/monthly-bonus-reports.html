@@ -1,0 +1,301 @@
+<div class="p-4 md:p-6">
+  <!-- Search Section - Modern Card Design -->
+  <div class="bg-white rounded-xl shadow-asta p-4 mb-6 border border-astaLight">
+    <h3 class="text-lg font-semibold text-astaDark mb-4 flex items-center">
+      <i class="fas fa-chart-line text-astaPrimary mr-2"></i> Generate Bonus Report
+    </h3>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div class="md:col-span-1">
+        <label class="block text-sm font-medium text-astaDark mb-1">Month</label>
+        <div class="relative">
+          <select class="w-full rounded-lg border-astaLight bg-astaLight/20 shadow-sm focus:border-astaPrimary focus:ring focus:ring-astaPrimary/50 py-2 px-3 border appearance-none">
+            <option value="">Select Month</option>
+            <option value="01" selected>January</option>
+            <option value="02">February</option>
+            <option value="03">March</option>
+            <option value="04">April</option>
+            <option value="05">May</option>
+            <option value="06">June</option>
+            <option value="07">July</option>
+            <option value="08">August</option>
+            <option value="09">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+          <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+            <i class="fas fa-chevron-down text-astaPrimary"></i>
+          </div>
+        </div>
+      </div>
+      <div class="md:col-span-1">
+        <label class="block text-sm font-medium text-astaDark mb-1">Year</label>
+        <div class="relative">
+          <select class="w-full rounded-lg border-astaLight bg-astaLight/20 shadow-sm focus:border-astaPrimary focus:ring focus:ring-astaPrimary/50 py-2 px-3 border appearance-none">
+            <option value="">Select Year</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025" selected>2025</option>
+          </select>
+          <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+            <i class="fas fa-chevron-down text-astaPrimary"></i>
+          </div>
+        </div>
+      </div>
+      <div class="md:col-span-2 flex items-end gap-2">
+        <button class="flex-1 bg-astaPrimary hover:bg-astaDark text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 flex items-center justify-center hover:shadow-asta-lg">
+          <i class="fas fa-search mr-2"></i> Search
+        </button>
+        <button id="download-pdf" class="flex-1 bg-astaSecondary hover:bg-astaAccent text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 flex items-center justify-center hover:shadow-asta-lg">
+          <i class="fas fa-download mr-2"></i> PDF
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Report Container - Modern Design -->
+  <div class="bg-white rounded-xl shadow-asta overflow-hidden border border-astaLight">
+    <div class="p-0" id="pdf-container">
+      <div class="p-4 md:p-6" id="report-content" style="font-family: 'Inter', sans-serif;">
+        <!-- Header with Gradient Background -->
+        <div class="bg-gradient-to-r from-astaPrimary/10 to-astaSecondary/10 rounded-lg border border-astaPrimary/20 mb-6">
+          <div class="p-4 md:p-6">
+            <div class="flex flex-col items-center gap-2">
+              <img src="../logo.png" alt="Astalife Logo" class="h-12 mx-auto">
+
+              <div class="text-center">
+                <h1 class="text-lg md:text-xl font-bold text-astaDark">Astalife Marketing Private Limited</h1>
+                <p class="text-xs md:text-sm text-gray-600">Report Generated - June 3, 2025</p>
+              </div>
+
+              <!-- <div class="md:absolute md:right-6 md:top-6 bg-white/80 rounded-lg px-4 py-2 shadow-inner">
+                <p class="text-xs text-gray-600">Report Generated</p>
+                <p class="text-sm font-semibold text-astaDark">June 3, 2025</p>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- IBO Info Card with Hover Effect -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div class="border border-astaLight rounded-xl p-4 bg-astaLight/10 hover:bg-astaLight/20 transition-all duration-300">
+            <h3 class="text-md font-bold text-astaDark mb-3 flex items-center">
+              <i class="fas fa-building text-astaPrimary mr-2"></i> Company Information
+            </h3>
+            <div class="text-xs md:text-sm space-y-1">
+              <p>SCO NO. 11, FIRST FLOOR NEW</p>
+              <p>MATA GUJRI ENCLAVE KHARAR</p>
+              <p>RUPMAGAR-140301, PUNJAB</p>
+              <p class="mt-2"><span class="font-medium">Tel:</span> 9872480555</p>
+            </div>
+          </div>
+
+          <div class="border border-astaLight rounded-xl p-4 bg-astaLight/10 hover:bg-astaLight/20 transition-all duration-300">
+            <h3 class="text-md font-bold text-astaDark mb-3 flex items-center">
+              <i class="fas fa-building text-astaPrimary mr-2"></i> Legal Details
+            </h3>
+            <div class="space-y-2">
+              <div class="text-xs md:text-sm space-y-1">
+                <p class="mt-2"><span class="font-medium text-astaDark">CIN:</span> U47720PB2025PTC064099</p>
+                <p class="mt-2"><span class="font-medium text-astaDark">PAN:</span> AATCM1879M</p>
+                <p class="mt-2"><span class="font-medium text-astaDark">TAX:</span> PTLM20134C</p>
+                <p class="mt-2"><span class="font-medium text-astaDark">GST:</span> ##########</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- IBO Info Card with Hover Effect -->
+        <div class="grid grid-cols-1 gap-2 mb-6">
+          <!-- Company Info Card -->
+          <!-- <div class="border border-astaLight rounded-xl p-4 bg-astaLight/10 hover:bg-astaLight/20 transition-all duration-300">
+            <h3 class="text-md font-bold text-astaDark mb-3 flex items-center">
+              <i class="fas fa-building text-astaPrimary mr-2"></i> Company Details
+            </h3>
+            <div class="text-xs md:text-sm space-y-1">
+              <p>SCO NO. 11, FIRST FLOOR NEW MATA GUJRI ENCLAVE, KHARAR, </p>
+              <p>RUPMAGAR-140301, PUNJAB</p>
+              <p class="mt-2"><span class="font-medium text-astaDark">Tel No:</span> 9872480555</p>
+              <p class="mt-2"><span class="font-medium text-astaDark">CIN:</span> U47720PB2025PTC064099</p>
+              <p class="mt-2"><span class="font-medium text-astaDark">PAN:</span> AATCM1879M</p>
+              <p class="mt-2"><span class="font-medium text-astaDark">TAX:</span> PTLM20134C</p>
+              <p class="mt-2"><span class="font-medium text-astaDark">GST:</span> ##########</p>
+            </div>
+          </div> -->
+
+          <div class="border border-astaLight rounded-xl p-4 bg-astaLight/10 hover:bg-astaLight/20 transition-all duration-300">
+            <h3 class="text-md font-bold text-astaDark mb-3 flex items-center">
+              <i class="fas fa-user-tie text-astaPrimary mr-2"></i> User Information
+            </h3>
+            <div class="space-y-1">
+              <div class="flex items-center">
+                <span class="w-24 text-xs md:text-sm font-medium text-astaDark">ABO:</span>
+                <span class="text-xs md:text-sm font-semibold">5450543</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-24 text-xs md:text-sm font-medium text-astaDark">Name:</span>
+                <span class="text-xs md:text-sm font-semibold">Hannik Pala</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-24 text-xs md:text-sm font-medium text-astaDark">Mobile:</span>
+                <span class="text-xs md:text-sm font-semibold">907067544</span>
+              </div>
+              <div class="flex items-start">
+                <span class="w-24 text-xs md:text-sm font-medium text-astaDark">Address:</span>
+                <span class="text-xs md:text-sm font-semibold">#901, Sector 15, Chorospin</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+         <!-- IBO Info Card with Hover Effect -->
+        <!-- <div class="grid grid-cols-1 gap-6 mb-6">
+          <div class="border border-astaLight rounded-xl p-4 bg-astaLight/10 hover:bg-astaLight/20 transition-all duration-300">
+            <h3 class="text-md font-bold text-astaDark mb-3 flex items-center">
+              <i class="fas fa-user-tie text-astaPrimary mr-2"></i> IBO Information
+            </h3>
+            <div class="space-y-2">
+              <div class="flex items-center">
+                <span class="w-24 text-sm font-medium text-astaDark">ABO:</span>
+                <span class="text-sm font-semibold">5450543</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-24 text-sm font-medium text-astaDark">Name:</span>
+                <span class="text-sm font-semibold">Hannik Pala</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-24 text-sm font-medium text-astaDark">Mobile:</span>
+                <span class="text-sm font-semibold">907067544</span>
+              </div>
+              <div class="flex items-start">
+                <span class="w-24 text-sm font-medium text-astaDark">Address:</span>
+                <span class="text-sm font-semibold">#901, Sector 15, Chorospin</span>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- Income Summary with Progress Bars -->
+        <div class="mb-6">
+          <h3 class="text-xl font-bold text-astaDark mb-4 flex items-center">
+            <i class="fas fa-wallet text-astaPrimary mr-2"></i> Income Summary
+          </h3>
+          
+          <!-- Income Breakdown -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div class="space-y-4">
+              <div class="bg-astaLight/10 rounded-lg p-4">
+                <div class="flex justify-between mb-1">
+                  <span class="text-sm font-medium text-astaDark">First Purchase</span>
+                  <span class="text-sm font-bold">¥7,690.00</span>
+                </div>
+                <div class="w-full bg-astaLight/20 rounded-full h-2">
+                  <div class="bg-astaPrimary h-2 rounded-full" style="width: 15%"></div>
+                </div>
+              </div>
+              
+              <div class="bg-astaLight/10 rounded-lg p-4">
+                <div class="flex justify-between mb-1">
+                  <span class="text-sm font-medium text-astaDark">Team Sales</span>
+                  <span class="text-sm font-bold">¥26,890.00</span>
+                </div>
+                <div class="w-full bg-astaLight/20 rounded-full h-2">
+                  <div class="bg-astaPrimary h-2 rounded-full" style="width: 52%"></div>
+                </div>
+              </div>
+              
+              <div class="bg-astaLight/10 rounded-lg p-4">
+                <div class="flex justify-between mb-1">
+                  <span class="text-sm font-medium text-astaDark">Team Level</span>
+                  <span class="text-sm font-bold">¥13,701.00</span>
+                </div>
+                <div class="w-full bg-astaLight/20 rounded-full h-2">
+                  <div class="bg-astaPrimary h-2 rounded-full" style="width: 27%"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="space-y-4">
+              <div class="bg-astaLight/10 rounded-lg p-4">
+                <div class="flex justify-between mb-1">
+                  <span class="text-sm font-medium text-astaDark">Self Purchase</span>
+                  <span class="text-sm font-bold">¥4,500.00</span>
+                </div>
+                <div class="w-full bg-astaLight/20 rounded-full h-2">
+                  <div class="bg-astaPrimary h-2 rounded-full" style="width: 9%"></div>
+                </div>
+              </div>
+              
+              <div class="bg-astaLight/10 rounded-lg p-4">
+                <div class="flex justify-between mb-1">
+                  <span class="text-sm font-medium text-astaDark">Rank Reward</span>
+                  <span class="text-sm font-bold">¥50,000.00</span>
+                </div>
+                <div class="w-full bg-astaLight/20 rounded-full h-2">
+                  <div class="bg-astaPrimary h-2 rounded-full" style="width: 97%"></div>
+                </div>
+              </div>
+              
+              <div class="bg-astaLight/10 rounded-lg p-4">
+                <div class="flex justify-between mb-1">
+                  <span class="text-sm font-medium text-astaDark">Total Bonus</span>
+                  <span class="text-sm font-bold text-astaPrimary">¥102,781.00</span>
+                </div>
+                <div class="w-full bg-astaLight/20 rounded-full h-2">
+                  <div class="bg-astaSecondary h-2 rounded-full" style="width: 100%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Net Payable Card -->
+          <div class="bg-gradient-to-r from-astaPrimary/10 to-astaSecondary/10 rounded-xl p-6 border border-astaLight mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="text-center">
+                <p class="text-sm text-astaDark">Total Earnings</p>
+                <p class="text-xl font-bold text-astaPrimary">¥102,781.00</p>
+              </div>
+              <div class="text-center">
+                <p class="text-sm text-astaDark">Total Deductions</p>
+                <p class="text-xl font-bold text-red-500">-¥14,389.34</p>
+              </div>
+              <div class="text-center">
+                <p class="text-sm text-astaDark">Net Payable</p>
+                <p class="text-2xl font-bold text-astaSecondary">¥88,391.66</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deduction Details -->
+        <div class="mb-6">
+          <h3 class="text-lg font-bold text-astaDark mb-4 flex items-center">
+            <i class="fas fa-file-invoice-dollar text-astaPrimary mr-2"></i> Deduction Details
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-white border border-astaLight rounded-lg p-4">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-medium text-astaDark">TDS @5%</span>
+                <span class="text-sm font-bold text-red-500">-¥7,194.67</span>
+              </div>
+              <p class="text-xs text-gray-500">As per Indian tax regulations</p>
+            </div>
+            <div class="bg-white border border-astaLight rounded-lg p-4">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-medium text-astaDark">Admin Charges @5%</span>
+                <span class="text-sm font-bold text-red-500">-¥7,194.67</span>
+              </div>
+              <p class="text-xs text-gray-500">Company service charges</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center text-xs text-gray-500 mt-6 pt-4 border-t border-astaLight">
+          <p>This is a computer generated statement and does not require a signature</p>
+          <p class="mt-1">© 2025 Astalife Marketing Private Limited. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstaLife - Healthy Way of Life</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        astaPrimary: '#1A5D1A',    // Dark Green
+                        astaSecondary: '#F49D1A',  // Orange/Yellow
+                        astaAccent: '#FFD93D',     // Bright Yellow
+                        astaLight: '#E8F9E8',      // Light Green
+                        astaDark: '#0C3A0C',       // Darker Green
+                        astaFooter: '#081F08'      // Footer
+                    },
+                    animation: {
+                        'gradient-x': 'gradient-x 5s ease infinite',
+                    },
+                    keyframes: {
+                        'gradient-x': {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans bg-astaLight">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50 py-2">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img class="h-12 w-auto" src="https://www.myastalife.com/Wresource/img/logo.png" alt="myastalife">
+                    </div>
+                    <div class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="#" class="border-astaPrimary text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Home</a>
+                        
+                        <!-- Products Dropdown -->
+                        <div class="relative group">
+                            <button class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                                Products
+                                <svg class="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div class="absolute z-10 left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                                <div class="py-1" role="menu" aria-orientation="vertical">
+                                    <a href="/products/astacell.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">AstaCell</a>
+                                    <a href="/products/astaphyll" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">AstaPhyll</a>
+                                    <a href="/products/astabrew" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Asta Brew</a>
+                                    <a href="/products/astadrop" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">ASTA DROP</a>
+                                    <a href="/products/astareverse" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Asta Reverse</a>
+                                    <a href="/products/hiimzil" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">HIIMZIL ASTALIFE</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Opportunity</a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">About Us</a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center">
+                    <a href="login.html" class="text-gray-500 hover:text-astaPrimary px-3 py-2 text-sm font-medium">Login</a>
+                    <a href="register.html" class="ml-4 bg-astaPrimary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-astaDark transition duration-300">Register</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-astaPrimary" aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="#" class="bg-astaPrimary bg-opacity-10 border-astaPrimary text-astaPrimary block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Home</a>
+                
+                <!-- Mobile Products Dropdown -->
+                <div x-data="{ open: false }">
+                    <button @click="open = !open" class="w-full flex justify-between items-center border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                        Products
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div x-show="open" class="pl-4">
+                        <a href="/products/astacell" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-500 hover:text-gray-700 hover:bg-gray-50">AstaCell</a>
+                        <a href="/products/astaphyll" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-500 hover:text-gray-700 hover:bg-gray-50">AstaPhyll</a>
+                        <a href="/products/astabrew" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-500 hover:text-gray-700 hover:bg-gray-50">Asta Brew</a>
+                        <a href="/products/astadrop" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-500 hover:text-gray-700 hover:bg-gray-50">ASTA DROP</a>
+                        <a href="/products/astareverse" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-500 hover:text-gray-700 hover:bg-gray-50">Asta Reverse</a>
+                        <a href="/products/hiimzil" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-500 hover:text-gray-700 hover:bg-gray-50">HIIMZIL ASTALIFE</a>
+                    </div>
+                </div>
+                
+                <a href="#" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Opportunity</a>
+                <a href="#" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">About Us</a>
+                <a href="#" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Contact</a>
+                <div class="pt-4 pb-3 border-t border-gray-200">
+                    <div class="mt-3 space-y-1">
+                        <a href="login.html" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100">Login</a>
+                        <a href="register.html" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100">Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+                <div class="pt-0 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden">
+                    <div class="mt-10 mx-auto max-w-7xl px-4 sm:mt-10 sm:px-6 md:mt-3 lg:mt-5 lg:px-8 xl:mt-5">
+                        <div class="sm:text-center lg:text-left">
+                            <!-- Modern Title with Logo Colors -->
+                            <div class="mb-6">
+                                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-2">
+                                    <span class="inline-block bg-clip-text text-transparent bg-gradient-to-r from-astaPrimary to-astaSecondary">
+                                        AstaLife Marketing Private Limited
+                                    </span>
+                                </h1>
+                                <p class="text-lg sm:text-xl md:text-2xl font-medium text-gray-600">
+                                    Solutions guiding you to the healthy MyAstaLife way of life.
+                                </p>
+                            </div>
+                            
+                            <!-- Tagline with Logo Colors -->
+                            <div class="mb-8">
+                                <div class="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-astaAccent/20 to-astaSecondary/20">
+                                    <p class="text-sm sm:text-base font-medium text-transparent bg-clip-text bg-gradient-to-r from-astaPrimary to-astaSecondary">
+                                        <span class="text-astaSecondary">✨</span> Redefine health, relive life <span class="text-astaSecondary">✨</span>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                                Transforming lives through our unique combination of health-driven products and a dynamic direct-selling model.
+                            </p>
+                            <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                                <div class="rounded-md shadow">
+                                    <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-astaPrimary to-astaDark hover:from-astaDark hover:to-astaPrimary transition duration-300 md:py-4 md:text-lg md:px-10">
+                                        Explore Products
+                                    </a>
+                                </div>
+                                <div class="mt-3 sm:mt-0 sm:ml-3">
+                                    <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-astaPrimary bg-astaLight hover:bg-astaAccent/20 transition duration-300 md:py-4 md:text-lg md:px-10">
+                                        Business Opportunity
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+            <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Healthy lifestyle">
+        </div>
+    </div>
+
+    <!-- What We Stand For Section -->
+    <div class="py-12 bg-gradient-to-r from-astaPrimary to-astaDark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-astaAccent font-semibold tracking-wide uppercase">Our Philosophy</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
+                    What We Stand For
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-astaAccent lg:mx-auto">
+                    Wellness is the cornerstone of success and happiness.
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <div class="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10">
+                    <div class="relative bg-white p-6 rounded-lg shadow-lg transform transition hover:scale-105 duration-300">
+                        <div class="absolute -top-6 left-6 bg-astaSecondary rounded-full p-3">
+                            <i class="fas fa-heartbeat text-white text-xl"></i>
+                        </div>
+                        <h3 class="mt-6 text-lg font-medium text-gray-900">Quality Products</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            Meticulously crafted to ensure quality, safety, and effectiveness for your health needs.
+                        </p>
+                    </div>
+
+                    <div class="relative bg-white p-6 rounded-lg shadow-lg transform transition hover:scale-105 duration-300">
+                        <div class="absolute -top-6 left-6 bg-astaSecondary rounded-full p-3">
+                            <i class="fas fa-hand-holding-heart text-white text-xl"></i>
+                        </div>
+                        <h3 class="mt-6 text-lg font-medium text-gray-900">Empowering Lives</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            Helping individuals take control of their health and wellbeing through our solutions.
+                        </p>
+                    </div>
+
+                    <div class="relative bg-white p-6 rounded-lg shadow-lg transform transition hover:scale-105 duration-300">
+                        <div class="absolute -top-6 left-6 bg-astaSecondary rounded-full p-3">
+                            <i class="fas fa-shield-alt text-white text-xl"></i>
+                        </div>
+                        <h3 class="mt-6 text-lg font-medium text-gray-900">Trust & Transparency</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            Committed to ethical business practices and complete product transparency.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Products -->
+    <div class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-base text-astaPrimary font-semibold tracking-wide uppercase">Our Offerings</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Featured Products
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Discover our health-driven products designed for your wellness journey.
+                </p>
+            </div>
+
+            <div class="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Product 1 -->
+                <div class="group relative bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+                    <div class="aspect-w-3 aspect-h-2 bg-gray-200 group-hover:opacity-75 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Product 1" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-medium text-gray-900">
+                            <a href="#">
+                                <span aria-hidden="true" class="absolute inset-0"></span>
+                                AstaVitality
+                            </a>
+                        </h3>
+                        <p class="mt-1 text-sm text-gray-500">Premium health supplement</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <p class="text-sm font-medium text-astaPrimary">₹1,499</p>
+                            <button class="bg-astaPrimary text-white px-3 py-1 rounded-md text-sm hover:bg-astaDark transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="group relative bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+                    <div class="aspect-w-3 aspect-h-2 bg-gray-200 group-hover:opacity-75 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1591769225440-811ad7d6eab2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Product 2" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-medium text-gray-900">
+                            <a href="#">
+                                <span aria-hidden="true" class="absolute inset-0"></span>
+                                NutriGlow
+                            </a>
+                        </h3>
+                        <p class="mt-1 text-sm text-gray-500">Skin and beauty formula</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <p class="text-sm font-medium text-astaPrimary">₹1,799</p>
+                            <button class="bg-astaPrimary text-white px-3 py-1 rounded-md text-sm hover:bg-astaDark transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="group relative bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+                    <div class="aspect-w-3 aspect-h-2 bg-gray-200 group-hover:opacity-75 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1591769225440-811ad7d6eab2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Product 3" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-medium text-gray-900">
+                            <a href="#">
+                                <span aria-hidden="true" class="absolute inset-0"></span>
+                                PureDetox
+                            </a>
+                        </h3>
+                        <p class="mt-1 text-sm text-gray-500">Cleansing and detox blend</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <p class="text-sm font-medium text-astaPrimary">₹2,199</p>
+                            <button class="bg-astaPrimary text-white px-3 py-1 rounded-md text-sm hover:bg-astaDark transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 text-center">
+                <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-gradient-to-r from-astaPrimary to-astaDark hover:from-astaDark hover:to-astaPrimary transition duration-300">
+                    View All Products
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Business Opportunity -->
+    <div class="relative bg-astaDark">
+        <div class="relative h-56 bg-astaPrimary sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2">
+            <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Team working">
+            <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-r from-astaPrimary/90 to-astaDark/90"></div>
+        </div>
+        <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+            <div class="md:ml-auto md:w-1/2 md:pl-10">
+                <h2 class="text-base text-astaAccent font-semibold uppercase tracking-wider">Business Opportunity</h2>
+                <p class="mt-2 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Empowering Growth</p>
+                <p class="mt-3 text-lg text-astaAccent">
+                    Beyond products, we provide an opportunity for individuals to unlock their potential as entrepreneurs, offering a transparent and scalable compensation plan designed for financial independence.
+                </p>
+                <div class="mt-8">
+                    <div class="inline-flex rounded-md shadow">
+                        <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-astaDark bg-astaAccent hover:bg-astaSecondary transition duration-300">
+                            Learn More
+                            <i class="fas fa-arrow-right ml-3 -mr-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-astaPrimary font-semibold tracking-wide uppercase">Success Stories</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    What Our Members Say
+                </p>
+            </div>
+
+            <div class="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Testimonial 1 -->
+                <div class="bg-astaLight p-6 rounded-lg shadow">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/32.jpg" alt="Priya K.">
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-gray-900">Priya K.</h3>
+                            <p class="text-gray-500">Independent Distributor</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-600">
+                            "AstaLife has transformed not just my health but my financial situation too. The products are exceptional and the business opportunity is life-changing."
+                        </p>
+                    </div>
+                    <div class="mt-4 flex">
+                        <i class="fas fa-star text-astaSecondary"></i>
+                        <i class="fas fa-star text-astaSecondary"></i>
+                        <i class="fas fa-star text-astaSecondary"></i>
+                        <i class="fas fa-star text-astaSecondary"></i>
+                        <i class="fas fa-star text-astaSecondary"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-astaLight p-6 rounded-lg shadow">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/men/45.jpg" alt="Rahul S.">
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-gray-900">Rahul S.</h3>
+                            <p class="text-gray-500">Diamond Executive</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-600">
+                            "The compensation plan is the most generous I've seen in the industry. In just 18 months, I've achieved financial freedom thanks to AstaLife."
+                        </p>
+                    </div>
+                    <div class="mt-4 flex">
+                        <i class="fas fa-star text-astaSecondary"></i>
+                        <i class="fas fa-star text-astaSecondary"></i>
+                        <i class="fas fa-star text-astaSecondary"></i>
+                        <i class="fas fa-star text-astaSecondary"></i>
+                        <i class="fas fa-star text-astaSecondary"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-astaLight p-6 rounded-lg shadow">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Ananya P.">
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-gray-900">Ananya P.</h3>
+                            <p class="text-gray-500">Platinum Director</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-600">
+                            "The training and support system is incredible. Even with no prior experience, I was able to build a successful business with AstaLife."
+                        </p>
+                    </div>
+                    <div class="mt-4 flex">
+                        <i class="fas fa-star text-astaSecondary"></i>
+                        <i class="fas fa-star text-astaSecondary"></i>
+                        <i class="fas fa-star text-astaSecondary"></i>
+                        <i class="fas fa-star text-astaSecondary"></i>
+                        <i class="fas fa-star text-astaSecondary"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-gradient-to-r from-astaPrimary to-astaDark">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+            <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+                <span class="block">Ready to transform your life?</span>
+                <span class="block text-astaAccent">Join AstaLife today.</span>
+            </h2>
+            <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+                <div class="inline-flex rounded-md shadow">
+                    <a href="register.html" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-astaDark bg-astaAccent hover:bg-astaSecondary transition duration-300">
+                        Get started
+                    </a>
+                </div>
+                <div class="ml-3 inline-flex rounded-md shadow">
+                    <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-astaPrimary hover:bg-astaDark transition duration-300">
+                        Learn more
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-astaFooter">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+            <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+                <div class="col-span-2">
+                    <img class="h-16" src="https://www.myastalife.com/Wresource/img/logo.png" alt="AstaLife Logo">
+                    <p class="mt-4 text-gray-300 text-sm">
+                        AstaLife Marketing Private Limited is dedicated to transforming lives through our unique combination of health-driven products and a dynamic direct-selling model.
+                    </p>
+                    <div class="mt-4 flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-astaAccent">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-astaAccent">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-astaAccent">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-astaAccent">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-astaAccent">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-astaAccent tracking-wider uppercase">Products</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-300 hover:text-astaAccent">Health Supplements</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-astaAccent">Beauty Care</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-astaAccent">Wellness Products</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-astaAccent">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-astaAccent tracking-wider uppercase">Company</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-300 hover:text-astaAccent">About Us</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-astaAccent">Leadership</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-astaAccent">Opportunity</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-astaAccent">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8">
+                <p class="text-base text-gray-400 text-center">
+                    &copy; 2023 AstaLife Marketing Private Limited. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !expanded);
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

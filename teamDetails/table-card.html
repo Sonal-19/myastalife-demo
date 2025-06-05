@@ -1,0 +1,209 @@
+<!-- table.html -->
+<div class="bg-white rounded-lg shadow-sm p-4">
+  <h2 class="text-xl font-semibold text-gray-800 mb-4">Team Members</h2>
+
+  <!-- Mobile View (Cards) - Shows on small screens -->
+  <div class="md:hidden space-y-3">
+    <!-- Card 1 -->
+    <div class="border rounded-lg p-3">
+      <div class="flex justify-between items-start">
+        <div>
+          <p class="font-medium">John Smith</p>
+          <p class="text-sm text-gray-500">john@example.com</p>
+        </div>
+        <span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Active</span>
+      </div>
+      <div class="mt-2 flex justify-between text-sm">
+        <p class="text-gray-600">15 Jan 2023</p>
+        <button class="text-astaPrimary hover:text-astaDark">View</button>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="border rounded-lg p-3">
+      <div class="flex justify-between items-start">
+        <div>
+          <p class="font-medium">Sarah Johnson</p>
+          <p class="text-sm text-gray-500">sarah@example.com</p>
+        </div>
+        <span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Active</span>
+      </div>
+      <div class="mt-2 flex justify-between text-sm">
+        <p class="text-gray-600">22 Feb 2023</p>
+        <button class="text-astaPrimary hover:text-astaDark">View</button>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="border rounded-lg p-3">
+      <div class="flex justify-between items-start">
+        <div>
+          <p class="font-medium">Michael Chen</p>
+          <p class="text-sm text-gray-500">michael@example.com</p>
+        </div>
+        <span class="px-2 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+      </div>
+      <div class="mt-2 flex justify-between text-sm">
+        <p class="text-gray-600">05 Mar 2023</p>
+        <button class="text-astaPrimary hover:text-astaDark">View</button>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="border rounded-lg p-3">
+      <div class="flex justify-between items-start">
+        <div>
+          <p class="font-medium">Emily Wilson</p>
+          <p class="text-sm text-gray-500">emily@example.com</p>
+        </div>
+        <span class="px-2 py-1 text-xs font-medium rounded-full bg-red-100 text-red-800">Inactive</span>
+      </div>
+      <div class="mt-2 flex justify-between text-sm">
+        <p class="text-gray-600">18 Apr 2023</p>
+        <button class="text-astaPrimary hover:text-astaDark">View</button>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="border rounded-lg p-3">
+      <div class="flex justify-between items-start">
+        <div>
+          <p class="font-medium">David Kim</p>
+          <p class="text-sm text-gray-500">david@example.com</p>
+        </div>
+        <span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Active</span>
+      </div>
+      <div class="mt-2 flex justify-between text-sm">
+        <p class="text-gray-600">30 May 2023</p>
+        <button class="text-astaPrimary hover:text-astaDark">View</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desktop View (Table) - Shows on medium+ screens -->
+  <div class="hidden md:block">
+    <div class="overflow-x-auto">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Member</th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Join Date</th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <!-- Row 1 -->
+          <tr>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 h-10 w-10">
+                  <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+                </div>
+                <div class="ml-4">
+                  <div class="text-sm font-medium text-gray-900">John Smith</div>
+                  <div class="text-sm text-gray-500">john@example.com</div>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">15 Jan 2023</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Active</span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+              <button class="text-astaPrimary hover:text-astaDark">View</button>
+            </td>
+          </tr>
+          
+          <!-- Row 2 -->
+          <tr>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 h-10 w-10">
+                  <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+                </div>
+                <div class="ml-4">
+                  <div class="text-sm font-medium text-gray-900">Sarah Johnson</div>
+                  <div class="text-sm text-gray-500">sarah@example.com</div>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">22 Feb 2023</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Active</span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+              <button class="text-astaPrimary hover:text-astaDark">View</button>
+            </td>
+          </tr>
+          
+          <!-- Row 3 -->
+          <tr>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 h-10 w-10">
+                  <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/men/67.jpg" alt="">
+                </div>
+                <div class="ml-4">
+                  <div class="text-sm font-medium text-gray-900">Michael Chen</div>
+                  <div class="text-sm text-gray-500">michael@example.com</div>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">05 Mar 2023</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="px-2 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+              <button class="text-astaPrimary hover:text-astaDark">View</button>
+            </td>
+          </tr>
+          
+          <!-- Row 4 -->
+          <tr>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 h-10 w-10">
+                  <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/women/28.jpg" alt="">
+                </div>
+                <div class="ml-4">
+                  <div class="text-sm font-medium text-gray-900">Emily Wilson</div>
+                  <div class="text-sm text-gray-500">emily@example.com</div>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">18 Apr 2023</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="px-2 py-1 text-xs font-medium rounded-full bg-red-100 text-red-800">Inactive</span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+              <button class="text-astaPrimary hover:text-astaDark">View</button>
+            </td>
+          </tr>
+          
+          <!-- Row 5 -->
+          <tr>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 h-10 w-10">
+                  <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/men/75.jpg" alt="">
+                </div>
+                <div class="ml-4">
+                  <div class="text-sm font-medium text-gray-900">David Kim</div>
+                  <div class="text-sm text-gray-500">david@example.com</div>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">30 May 2023</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Active</span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+              <button class="text-astaPrimary hover:text-astaDark">View</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
